@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "nyumba_backend": {
+      "candid": "src/nyumba_backend/nyumba_backend.did",
+      "package": "nyumba_backend",
+      "type": "rust"
+    },
+    "nyumba_frontend": {
+      "dependencies": [
+        "nyumba_backend"
+      ],
+      "source": [
+        "src/nyumba_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "nyumba_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
