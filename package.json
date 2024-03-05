@@ -14,5 +14,11 @@
   "type": "module",
   "workspaces": [
     "src/nyumba_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.11",
+    "react-timeline-scribble": "^1.0.14"
+  }
 }
