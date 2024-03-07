@@ -1,10 +1,15 @@
-import { useState } from 'react';
-import { nyumba_backend } from 'declarations/nyumba_backend';
-import React from 'react';
-import { AppBar, Container, CssBaseline, Toolbar, Typography, Paper } from '@mui/material';
+import { useState } from "react";
+import { nyumba_backend } from "declarations/nyumba_backend";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import PagesRouter from "./routes/public.routes";
+import AuthProvider from "./context/auth.context";
+// import getLPTheme from './theme/getLPTheme'
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -14,42 +19,28 @@ function App() {
     });
     return false;
   }
+  // const LPtheme = createTheme(getLPTheme("dark"));
 
   return (
-    <main>
-      <CssBaseline />
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6">My Awesome Page</Typography>
-        </Toolbar>
-      </AppBar>
+    <>
+      {/* <ThemeProvider theme={LPtheme}> */}
 
-      <Container maxWidth="lg" style={{ marginTop: '20px' }}>
-        <Paper elevation={3} style={{ padding: '20px' }}>
-          <Typography variant="h4" gutterBottom>
-            Welcome to My Page
-          </Typography>
-          <form action="#" onSubmit={handleSubmit}>
-            <label htmlFor="name">Enter your name: &nbsp;</label>
-            <input id="name" alt="Name" type="text" />
-            <button type="submit">Click Me!</button>
-          </form>
-          <section id="greeting">{greeting}</section>
-          <Typography variant="body1">
-            This is a simple example page using Material-UI. You can customize and expand it based
-            on your project requirements.
-          </Typography>
-        </Paper>
-      </Container>
+      <AuthProvider isSignedIn={true}>
+        <RouterProvider router={PagesRouter} />
+      </AuthProvider>
 
-      <footer style={{ marginTop: '20px', padding: '10px', backgroundColor: '#f5f5f5' }}>
-        <Typography variant="body2" align="center">
-          © {new Date().getFullYear()} My Page. All rights reserved.
-        </Typography>
-      </footer>
-
-    </main>
+      {/* </ThemeProvider> */}
+    </>
   );
 }
 
 export default App;
+
+{
+  /* <form action="#" onSubmit={handleSubmit}>
+            <label htmlFor="name">Enter your name: &nbsp;</label>
+            <input id="name" alt="Name" type="text" />
+            <button type="submit">Click Me!</button>
+          </form>
+          <section id="greeting">{greeting}</section> */
+}
