@@ -3,40 +3,32 @@ import * as React from "react";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Card from "@mui/joy/Card";
-import Chip from "@mui/joy/Chip";
 import Divider from "@mui/joy/Divider";
 import IconButton from "@mui/joy/IconButton";
 import Input from "@mui/joy/Input";
-import LinearProgress from "@mui/joy/LinearProgress";
 import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton, { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
 import Typography from "@mui/joy/Typography";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Sheet from "@mui/joy/Sheet";
-import Stack from "@mui/joy/Stack";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import QuestionAnswerRoundedIcon from "@mui/icons-material/QuestionAnswerRounded";
-import GroupRoundedIcon from "@mui/icons-material/GroupRounded";
 import SupportRoundedIcon from "@mui/icons-material/SupportRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ColorSchemeToggle from "../../pages/chat/widgets/ColorSchemeToggle";
 import { closeSidebar } from "../utils/utils";
 import { Link } from "react-router-dom";
+import { NavigationData } from "../../types/NavItem";
+import { Chip } from "@mui/joy";
+import { useAuth } from "../../context/auth.context";
+import { useNavigate } from "react-router-dom";
 
 function Toggler(props: {
   defaultExpanded?: boolean;
-
   children: React.ReactNode;
   renderToggle: (params: {
     open: boolean;
@@ -44,6 +36,7 @@ function Toggler(props: {
   }) => React.ReactNode;
 }) {
   const { defaultExpanded = false, renderToggle, children } = props;
+
   const [open, setOpen] = React.useState(defaultExpanded);
   return (
     <React.Fragment>
@@ -64,7 +57,19 @@ function Toggler(props: {
   );
 }
 
-export default function Sidebar({ currentPage: string }) {
+interface SidebarProps {
+  currentPage: string;
+  navigationData: NavigationData;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
+  const authContext = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    authContext.clearAuthStatus;
+    navigate("/signin", { replace: true });
+  }
   return (
     <Sheet
       className="Sidebar"
@@ -165,88 +170,61 @@ export default function Sidebar({ currentPage: string }) {
               </ListItemButton>
             </Link>
           </ListItem>
-          <ListItem>
-            <Link to="/dashboard/orders">
-              <ListItemButton role="menuitem">
-                <ShoppingCartRoundedIcon />
-                <ListItemContent>
-                  <Typography level="title-sm">Orders</Typography>
-                </ListItemContent>
-              </ListItemButton>
-            </Link>
-          </ListItem>
-          <ListItem nested>
-            <Toggler
-              renderToggle={({ open, setOpen }) => (
-                <ListItemButton onClick={() => setOpen(!open)}>
-                  <AssignmentRoundedIcon />
-                  <ListItemContent>
-                    <Typography level="title-sm">Tasks</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowDownIcon
-                    sx={{ transform: open ? "rotate(180deg)" : "none" }}
-                  />
-                </ListItemButton>
-              )}
+          {/* CUSTOM NAVIGATION BASED ON USER GOOES HERE */}
+          {navigationData.map((item) => (
+            <ListItem
+              key={item.route}
+              nested={item.nested != undefined ? true : false}
             >
-              <List sx={{ gap: 0.5 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton>All tasks</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Backlog</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>In progress</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Done</ListItemButton>
-                </ListItem>
-              </List>
-            </Toggler>
-          </ListItem>
-          <ListItem>
-            <Link to="/dashboard/chat">
-              <ListItemButton>
-                <QuestionAnswerRoundedIcon />
-                <ListItemContent>
-                  <Typography level="title-sm">Messages</Typography>
-                </ListItemContent>
-                <Chip size="sm" color="primary" variant="solid">
-                  4
-                </Chip>
-              </ListItemButton>
-            </Link>
-          </ListItem>
-          <ListItem nested>
-            <Toggler
-              renderToggle={({ open, setOpen }) => (
-                <ListItemButton onClick={() => setOpen(!open)}>
-                  <GroupRoundedIcon />
-                  <ListItemContent>
-                    <Typography level="title-sm">Users</Typography>
-                  </ListItemContent>
-                  <KeyboardArrowDownIcon
-                    sx={{ transform: open ? "rotate(180deg)" : "none" }}
-                  />
-                </ListItemButton>
+              {item.nested ? (
+                <Toggler
+                  renderToggle={({ open, setOpen }) => (
+                    <ListItemButton onClick={() => setOpen(!open)}>
+                      {item.icon}
+                      <ListItemContent>
+                        <Typography level="title-sm">{item.title}</Typography>
+                      </ListItemContent>
+                      <KeyboardArrowDownIcon
+                        sx={{ transform: open ? "rotate(180deg)" : "none" }}
+                      />
+                    </ListItemButton>
+                  )}
+                >
+                  <List sx={{ gap: 0.5 }}>
+                    {item.nested.map((nestedItem) => (
+                      <ListItem key={nestedItem.route} sx={{ mt: 0.5 }}>
+                        <Link to={nestedItem.route}>
+                          <ListItemButton
+                            role="menuitem"
+                            selected={currentPage === nestedItem.currentPage}
+                          >
+                            {nestedItem.title}
+                          </ListItemButton>
+                        </Link>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Toggler>
+              ) : (
+                <Link to={item.route}>
+                  <ListItemButton
+                    role="menuitem"
+                    selected={currentPage === item.currentPage}
+                  >
+                    {item.icon}
+                    <ListItemContent>
+                      <Typography level="title-sm">{item.title}</Typography>
+                    </ListItemContent>
+                    {item.badge && (
+                      <Chip size="sm" color="primary" variant="solid">
+                        {item.badge}
+                      </Chip>
+                    )}
+                  </ListItemButton>
+                </Link>
               )}
-            >
-              <List sx={{ gap: 0.5 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <Link to="/dashboard/profile">
-                    <ListItemButton role="menuitem">My profile</ListItemButton>
-                  </Link>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Create a new user</ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton>Roles & permission</ListItemButton>
-                </ListItem>
-              </List>
-            </Toggler>
-          </ListItem>
+            </ListItem>
+          ))}
         </List>
         <List
           size="sm"
@@ -261,7 +239,7 @@ export default function Sidebar({ currentPage: string }) {
           <ListItem>
             <ListItemButton>
               <SupportRoundedIcon />
-              Support
+              About
             </ListItemButton>
           </ListItem>
           <ListItem>
@@ -288,10 +266,17 @@ export default function Sidebar({ currentPage: string }) {
             </Box>
           </Box>
         </Link>
-        <IconButton size="sm" variant="plain" color="neutral">
+        <IconButton
+          onClick={handleLogout}
+          size="sm"
+          variant="plain"
+          color="neutral"
+        >
           <LogoutRoundedIcon />
         </IconButton>
       </Box>
     </Sheet>
   );
-}
+};
+
+export default Sidebar;

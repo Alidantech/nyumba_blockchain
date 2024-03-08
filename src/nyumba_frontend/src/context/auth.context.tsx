@@ -1,8 +1,20 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 
-import { User } from "../types/User";
+export type User = {
+  id: number;
+  role: "buyer" | "seller" | "govt" | "admin";
+};
 
-const AuthContext = createContext<User | null>(null);
+// Define a type for the context value including functions
+type AuthContextValue =
+  | (User & {
+      setAuthStatus: (isSignedIn: boolean) => void;
+      setUserRole: (role: User["role"]) => void;
+      clearAuthStatus: () => void;
+    })
+  | null;
+
+const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 type AuthProviderProps = PropsWithChildren & {
   isSignedIn?: boolean;
@@ -12,16 +24,46 @@ export default function AuthProvider({
   children,
   isSignedIn,
 }: AuthProviderProps) {
-  // Uses `isSignedIn` prop to determine whether or not to render a user
-  const [user] = useState<User | null>(isSignedIn ? { id: 1 } : null);
+  const [user, setUser] = useState<User | null>(
+    isSignedIn ? { id: 1, role: "govt" } : null
+  );
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  const setAuthStatus = (isSignedIn: boolean) => {
+    if (isSignedIn) {
+      setUser({ id: 1, role: "govt" });
+    } else {
+      setUser(null);
+    }
+  };
+
+  const setUserRole = (role: User["role"]) => {
+    if (user) {
+      setUser({ ...user, role });
+    }
+  };
+
+  const clearAuthStatus = () => {
+    setUser(null);
+  };
+
+ const contextValue: AuthContextValue = {
+   ...(user || {}), // Use an empty object if user is null to avoid spreading null
+   setAuthStatus,
+   setUserRole,
+   clearAuthStatus,
+   id: user?.id || 0, // Provide a default value for id (e.g., 0)
+   role: user?.role || "buyer", // Provide a default value for role (e.g., "buyer")
+ };
+
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
 
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
 

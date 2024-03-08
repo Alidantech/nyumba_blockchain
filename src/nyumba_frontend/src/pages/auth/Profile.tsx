@@ -1,4 +1,3 @@
-/* Your MyProfile component content */
 import * as React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
@@ -22,7 +21,6 @@ import Link from "@mui/joy/Link";
 import Card from "@mui/joy/Card";
 import CardActions from "@mui/joy/CardActions";
 import CardOverflow from "@mui/joy/CardOverflow";
-
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
@@ -30,25 +28,26 @@ import AccessTimeFilledRoundedIcon from "@mui/icons-material/AccessTimeFilledRou
 import VideocamRoundedIcon from "@mui/icons-material/VideocamRounded";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
 import EditRoundedIcon from "@mui/icons-material/EditRounded";
-
-import DropZone from "./widgets/profile/DropZone";
-import FileUpload from "./widgets/profile/FileUpload";
 import CountrySelector from "./widgets/profile/CountrySelector";
 import EditorToolbar from "./widgets/profile/EditorToolbar";
+import { FileUpload } from "@mui/icons-material";
+import DropZone from "./widgets/profile/DropZone";
 
 export default function MyProfile() {
   return (
     <Box
+      component="main"
+      className="MainContent"
       sx={{
-      //   pt: { xs: "calc(12px + var(--Header-height))", md: 3 },
-      //   pb: { xs: 2, sm: 2, md: 3 },
+        pt: { xs: "calc(12px + var(--Header-height))", md: 3 },
+        pb: { xs: 2, sm: 2, md: 3 },
         flex: 1,
         display: "flex",
-      //   flexDirection: "column",
-      //   minWidth: 0,
-      //   height: "100dvh",
-      //   gap: 1,
-      //   overflow: "auto",
+        flexDirection: "column",
+        minWidth: 0,
+        height: "100dvh",
+        gap: 1,
+        overflow: "auto",
       }}
     >
       <Box sx={{ flex: 1, width: "100%" }}>
@@ -418,18 +417,18 @@ export default function MyProfile() {
             <Divider />
             <Stack spacing={2} sx={{ my: 1 }}>
               <DropZone />
-              <FileUpload
-                icon={<InsertDriveFileRoundedIcon />}
-                fileName="Tech design requirements.pdf"
-                fileSize="200 kB"
-                progress={100}
-              />
-              <FileUpload
-                icon={<VideocamRoundedIcon />}
-                fileName="Dashboard prototype recording.mp4"
-                fileSize="16 MB"
-                progress={40}
-              />
+              {/* <FileUpload
+              icon={<InsertDriveFileRoundedIcon />}
+              fileName="Tech design requirements.pdf"
+              fileSize="200 kB"
+              progress={100}
+            />
+            <FileUpload
+              icon={<VideocamRoundedIcon />}
+              fileName="Dashboard prototype recording.mp4"
+              fileSize="16 MB"
+              progress={40}
+            /> */}
             </Stack>
             <CardOverflow
               sx={{ borderTop: "1px solid", borderColor: "divider" }}

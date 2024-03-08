@@ -5,24 +5,50 @@ import Header from "../../common/widgets/Header";
 import Sidebar from "../../common/widgets/Sidebar";
 import { Outlet } from "react-router-dom";
 import theme from "../../theme/DashboardTheme";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {
+  buyerNavigationData,
+  sellerNavigationData,
+  adminNavigationData,
+  govtAgentNavigationData,
+} from "../../common/utils/navData";
+import { useAuth } from "../../context/auth.context";
+import { NavigationData } from "../../types/NavItem";
 
 export default function Dashboard() {
+  const location = useLocation();
+  const auth = useAuth(); // Access user information from the context
+  const role = auth ? auth.role : null;
+  const currentPath = location.pathname.split("/").pop() || "dashboard";
 
-  const currentPage = useParams();
+  // Determine the navigation data based on the user's role
+  let navigationData: NavigationData;
 
-  console.log("Current Page:", currentPage);
+  switch (role) {
+    case "buyer":
+      navigationData = buyerNavigationData;
+      break;
+    case "seller":
+      navigationData = sellerNavigationData;
+      break;
+    case "admin":
+      navigationData = adminNavigationData;
+      break;
+    case "govt":
+      navigationData = govtAgentNavigationData;
+      break;
+    default:
+      navigationData = []; // Default to an empty array for unknown roles
+  }
 
   return (
-    <CssVarsProvider theme={theme}>
+    <CssVarsProvider theme={theme} disableTransitionOnChange>
       <CssBaseline />
-      <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        <Sidebar currentPage={"currentPage"} />
+      <Box sx={{ display: "flex", minHeight: "100vh", flex: 1 }}>
+        <Sidebar currentPage={currentPath} navigationData={navigationData} />
         <Header />
-        <Box component="main" className="MainContent">
-          {/* Render all dashboard pages here */}
-          <Outlet />
-        </Box>
+        {/* Render all dashboard pages here */}
+        <Outlet />
       </Box>
     </CssVarsProvider>
   );

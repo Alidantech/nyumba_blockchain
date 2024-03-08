@@ -7,6 +7,7 @@ import Dashboard from "../pages/home/Dashboard";
 import ProtectedRoute from "./protected.routes";
 import HomePage from "../pages/home/Home";
 import OrdersPage from "../pages/cart/Orders";
+import CheckoutPage from "../pages/cart/Checkout";
 import ChatsPage from "../pages/chat/Chat";
 import MyProfile from "../pages/auth/Profile";
 import RentalDashboard from "../pages/shop/Rental";
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: <h1>404 Not Found</h1>,
+  },
+  {
+    path: "/order/checkout",
+    element: <CheckoutPage />,
   },
   {
     path: "/rentals",
