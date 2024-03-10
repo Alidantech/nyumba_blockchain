@@ -19,9 +19,9 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 // Define navigation data for s
 export const sellerNavigationData: NavigationData = [
   {
-    route: "/dashboard//products",
+    route: "/dashboard/products",
     icon: <StorefrontRoundedIcon />,
-    title: "My Products",
+    title: "My Properties",
     currentPage: "Products",
     nested: [
       {
@@ -52,34 +52,34 @@ export const sellerNavigationData: NavigationData = [
     title: "Orders",
     currentPage: "Orders",
   },
-  {
-    route: "/dashboard/customers",
-    icon: <GroupRoundedIcon />,
-    title: "Customers",
-    currentPage: "Customers",
-  },
+  // {
+  //   route: "/dashboard/customers",
+  //   icon: <GroupRoundedIcon />,
+  //   title: "Customers",
+  //   currentPage: "Customers",
+  // },
   {
     route: "/dashboard/chat",
     icon: <ContactMailRoundedIcon />,
     title: "Chat",
     currentPage: "chat",
   },
-  {
-    route: "/dashboard/finance",
-    icon: <AccountBalanceRoundedIcon />,
-    title: "Finance",
-    currentPage: "Finance",
-  },
+  // {
+  //   route: "/dashboard/finance",
+  //   icon: <AccountBalanceRoundedIcon />,
+  //   title: "Finance",
+  //   currentPage: "Finance",
+  // },
 ];
 
 // Define navigation data for govtAgents
 export const govtAgentNavigationData: NavigationData = [
-  {
-    route: "/dashboard/cases",
-    icon: <AssignmentRoundedIcon />,
-    title: "Cases",
-    currentPage: "govtAgentCases",
-  },
+  // {
+  //   route: "/dashboard/cases",
+  //   icon: <AssignmentRoundedIcon />,
+  //   title: "Cases",
+  //   currentPage: "govtAgentCases",
+  // },
   {
     route: "/dashboard/documents",
     icon: <ContactMailRoundedIcon />,
@@ -144,13 +144,7 @@ export const adminNavigationData: NavigationData = [
       { route: "/dashboard/tasks/done", title: "Done", currentPage: "done" },
     ],
   },
-  {
-    route: "/dashboard/chat",
-    icon: <QuestionAnswerRoundedIcon />,
-    title: "Messages",
-    currentPage: "chat",
-    badge: 4,
-  },
+
   {
     route: "/dashboard/users",
     icon: <GroupRoundedIcon />,
@@ -175,10 +169,11 @@ export const adminNavigationData: NavigationData = [
     ],
   },
   {
-    route: "/dashboard/finance",
-    icon: <AccountBalanceRoundedIcon />,
-    title: "Finance",
-    currentPage: "Finance",
+    route: "/dashboard/chat",
+    icon: <QuestionAnswerRoundedIcon />,
+    title: "Messages",
+    currentPage: "chat",
+    badge: 4,
   },
 ];
 

@@ -42,7 +42,7 @@ export default function Hero() {
               textAlign: "center",
             }}
           >
-            Our latest&nbsp;
+            HOUSING MADE &nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -53,15 +53,18 @@ export default function Hero() {
                     : "primary.light",
               }}
             >
-              products
+              EASIER
             </Typography>
           </Typography>
-          <Typography variant="body1" textAlign="center" color="text.secondary">
-            Explore our cutting-edge dashboard, delivering high-quality
-            solutions tailored to your needs. <br />
-            Elevate your experience with top-tier features and services.
+          <Typography variant="body1" textAlign="start" color="text.secondary">
+            Wanting a house is one thing,getting one is another.With'Nyumba
+            Blockchain' you get to do everything from the comfort of your own
+            house.<br/>Forget the hustle of going around knocking on every apartment
+            asking for a vacancy. Do it in seconds That's not all!! You get to
+            own a piece of Kenya just as easily without the fear of losing your
+            money
           </Typography>
-          <Stack
+          {/* <Stack
             direction={{ xs: "column", sm: "row" }}
             alignSelf="center"
             spacing={1}
@@ -94,9 +97,9 @@ export default function Hero() {
               Terms & Conditions
             </Link>
             .
-          </Typography>
+          </Typography> */}
         </Stack>
-        <Box
+        {/* <Box
           id="image"
           sx={(theme) => ({
             mt: { xs: 8, sm: 10 },
@@ -119,7 +122,7 @@ export default function Hero() {
             //     ? `0 0 12px 8px ${alpha("#9CCCFC", 0.2)}`
             //     : `0 0 24px 12px ${alpha("#033363", 0.2)}`,
           })}
-        />
+        /> */}
       </Container>
     </Box>
   );

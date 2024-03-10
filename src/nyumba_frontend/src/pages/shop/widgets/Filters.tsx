@@ -37,7 +37,7 @@ export default function Filters() {
         Filters
       </Button>
       <OrderSelector />
-      <Drawer open={open} onClose={() => setOpen(false)}>
+      <Drawer sx={{left: 0}} open={open} onClose={() => setOpen(false)}>
         <Stack useFlexGap spacing={3} sx={{ p: 2 }}>
           <DialogTitle>Filters</DialogTitle>
           <ModalClose />

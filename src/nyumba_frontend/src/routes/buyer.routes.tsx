@@ -69,7 +69,6 @@ export const getBuyerRoutes: () => RouteObject[][] = () => [
   },
   {
     //@ts-ignore
-
     path: "/dashboard/cart/checkout",
     element: <CheckoutPage />,
   },

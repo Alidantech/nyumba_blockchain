@@ -3,94 +3,80 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Stack from "@mui/joy/Stack";
-
-import NavBar from "./widgets/rental/NavBar";
-import RentalCard from "./widgets/rental/RentalCard";
-import HeaderSection from "./widgets/rental/HeaderSection";
-import Search from "./widgets/rental/Search";
-import Filters from "./widgets/rental/Filters";
-import Pagination from "./widgets/rental/Pagination";
+import RentalCard from "./widgets/RentalCard";
+import HeaderSection from "./widgets/HeaderSection";
+import Search from "./widgets/Search";
+import Filters from "./widgets/Filters";
+import Pagination from "./widgets/Pagination";
+import LandData from "../../database/Land"
 
 export default function Land() {
   return (
-    <CssVarsProvider disableTransitionOnChange>
-      <CssBaseline />
-      <NavBar />
-      <Box
-        component="main"
+    <Box
+      component="main"
+      sx={{
+        height: "100dvh",
+        width: "100%",
+        display: "grid",
+        overflow: "hidden",
+        // gridTemplateColumns: { xs: "auto", md: "60% 40%" },
+        // gridTemplateRows: "auto 1fr auto",
+      }}
+    >
+      {" "}
+      <Stack
+        spacing={2}
         sx={{
-          height: "calc(100vh - 55px)", // 55px is the height of the NavBar
-          display: "grid",
-          gridTemplateColumns: { xs: "auto", md: "60% 40%" },
-          gridTemplateRows: "auto 1fr auto",
+          px: { xs: 0, md: 0 },
+          pt: { md: 0, xs: 5 },
+          minHeight: 0,
+          overflow: { md: "hidden", xs: "auto" },
         }}
       >
         <Stack
           sx={{
             backgroundColor: "background.surface",
             px: { xs: 2, md: 4 },
-            py: 2,
-            borderBottom: "1px solid",
+            pb: 1,
+            // borderBottom: "1px solid",
             borderColor: "divider",
           }}
         >
-          <HeaderSection />
-          <Search />
-        </Stack>
-        <Box
-          sx={{
-            gridRow: "span 3",
-            display: { xs: "none", md: "flex" },
-            backgroundColor: "background.level1",
-            backgroundSize: "cover",
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3731&q=80")',
-          }}
-        />
-        <Stack spacing={2} sx={{ px: { xs: 2, md: 4 }, pt: 2, minHeight: 0 }}>
-          <Filters />
-          <Stack spacing={2} sx={{ overflow: "auto" }}>
-            <RentalCard
-              title="A Stylish Apt, 5 min walk to Queen Victoria Market"
-              category="Entire apartment rental in Collingwood"
-              rareFind
-              image="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="Designer NY style loft"
-              category="Entire loft in central business district"
-              liked
-              image="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="5 minute walk from University of Melbourne"
-              category="Entire rental unit in Carlton"
-              image="https://images.unsplash.com/photo-1537726235470-8504e3beef77?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="Magnificent apartment next to public transport"
-              category="Entire apartment rental in Collingwood"
-              image="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="Next to shoppng mall and public transport"
-              category="Entire apartment rental in Collingwood"
-              image="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="Endless ocean view"
-              category="A private room in a shared apartment in Docklands"
-              image="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400"
-            />
-            <RentalCard
-              title="A Stylish Apt, 5 min walk to Queen Victoria Market"
-              category="one bedroom apartment in Collingwood"
-              image="https://images.unsplash.com/photo-1481437156560-3205f6a55735?auto=format&fit=crop&w=400"
-            />
+          <HeaderSection
+            title="Lands for Sale"
+            subTitle="Explore a variety of lands available for purchase and investment opportunities."
+          />
+          <Stack
+            sx={{
+              width: "100%",
+              justifyContent: "space-between",
+              display: "flex",
+              alignItems: { sm: "center", xs: "stretch" },
+              flexDirection: { sm: "row", xs: "column" },
+            }}
+          >
+            <Search />
+            <Filters />
           </Stack>
         </Stack>
-        <Pagination />
-      </Box>
-    </CssVarsProvider>
+        <Stack
+          style={{ margin: "0" }}
+          sx={{
+            height: "100%",
+            overflow: { md: "auto" },
+            m: 0,
+            p: 2,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+            gap: 2,
+          }}
+        >
+          {LandData.map((data, index) => (
+            <RentalCard key={index} {...data} />
+          ))}
+        </Stack>
+      </Stack>
+      <Pagination />
+    </Box>
   );
 }

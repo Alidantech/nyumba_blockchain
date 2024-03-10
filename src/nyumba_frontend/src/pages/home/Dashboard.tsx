@@ -23,7 +23,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
 
   const currentPath = location.pathname.split("/").pop() || "dashboard";
 
-  document.title = "Nyumba | " + currentPath.toLocaleLowerCase();
+  document.title = "Nyumba - " + currentPath.toLocaleLowerCase();
 
   // Determine the navigation data based on the user's role
   let navigationData: NavigationData;
@@ -48,7 +48,15 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
   return (
     <CssVarsProvider theme={theme} disableTransitionOnChange>
       <CssBaseline />
-      <Box sx={{ display: "flex", minHeight: "100vh", flex: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flex: 1,
+          height: "100vh",
+          m: 0,
+          p: 0,
+        }}
+      >
         <Sidebar currentPage={currentPath} navigationData={navigationData} />
         <Header />
         {/* Render all dashboard pages here */}

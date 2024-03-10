@@ -53,13 +53,13 @@ export default function Footer() {
                 alt="logo of sitemark"
               />
             </Box>
-            <Typography variant="body2" fontWeight={600} gutterBottom>
+            {/* <Typography variant="body2" fontWeight={600} gutterBottom>
               Newsletter
-            </Typography>
+            </Typography> */}
             <Typography variant="body2" color="text.secondary" mb={2}>
-              Subscribe to our newsletter for weekly updates and promotions.
+              Enhancing property management
             </Typography>
-            <Stack direction="row" spacing={1} useFlexGap>
+            {/* <Stack direction="row" spacing={1} useFlexGap>
               <TextField
                 id="outlined-basic"
                 hiddenLabel
@@ -80,7 +80,7 @@ export default function Footer() {
               >
                 Subscribe
               </Button>
-            </Stack>
+            </Stack> */}
           </Box>
         </Box>
         <Box
@@ -91,19 +91,19 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" fontWeight={600}>
-            Product
+            About
           </Typography>
           <Link color="text.secondary" href="#">
             Features
           </Link>
           <Link color="text.secondary" href="#">
-            Testimonials
+            Founders
           </Link>
-          <Link color="text.secondary" href="#">
+          {/* <Link color="text.secondary" href="#">
             Highlights
-          </Link>
+          </Link> */}
           <Link color="text.secondary" href="#">
-            Pricing
+            How it works
           </Link>
           <Link color="text.secondary" href="#">
             FAQs
@@ -117,16 +117,20 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" fontWeight={600}>
-            Company
+            Products
           </Typography>
           <Link color="text.secondary" href="#">
-            About us
+            Lands
           </Link>
           <Link color="text.secondary" href="#">
-            Careers
+            Lease Land
           </Link>
           <Link color="text.secondary" href="#">
-            Press
+            Real Estate
+          </Link>
+
+          <Link color="text.secondary" href="#">
+            Rentals
           </Link>
         </Box>
         <Box

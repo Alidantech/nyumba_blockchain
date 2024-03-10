@@ -14,40 +14,41 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
 const tiers = [
   {
-    title: "Free",
+    title: "Buyer",
     price: "0",
     description: [
-      "10 users included",
-      "2 GB of storage",
-      "Help center access",
-      "Email support",
+      "Creates an account.",
+      "Explores available properties",
+      "Places an order",
+      "They review the documents",
+      "They make payment",
     ],
     buttonText: "Sign up for free",
     buttonVariant: "outlined",
   },
   {
-    title: "Professional",
+    title: "Government",
     subheader: "Recommended",
     price: "15",
     description: [
-      "20 users included",
-      "10 GB of storage",
-      "Help center access",
-      "Priority email support",
-      "Dedicated team",
-      "Best deals",
+      "Creates an account.",
+      "Post their properties.",
+      "Government Reviews.",
+      "They get buyer orders.",
+      "Accepts Orders and gets Paid."
     ],
     buttonText: "Start now",
     buttonVariant: "contained",
   },
   {
-    title: "Enterprise",
+    title: "Property Owners (Seller)",
     price: "30",
     description: [
-      "50 users included",
-      "30 GB of storage",
-      "Help center access",
-      "Phone & email support",
+      "NCA, County and Land Offices",
+      "Recieves legal Documents.",
+      "Reviews the Documents.",
+      "Accepts Legit Documents",
+      "Declines Illegal Documents.",
     ],
     buttonText: "Contact us",
     buttonVariant: "outlined",
@@ -75,13 +76,10 @@ export default function Pricing() {
         }}
       >
         <Typography component="h2" variant="h4" color="text.primary">
-          Pricing
+          How It works
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Quickly build an effective pricing table for your potential customers
-          with this layout. <br />
-          It&apos;s built with default Material UI components with little
-          customization.
+         We help in linking Buyers, Property Owners and the government for easy property management.
         </Typography>
       </Box>
       <Grid container spacing={3} alignItems="center" justifyContent="center">
@@ -140,7 +138,7 @@ export default function Pricing() {
                     />
                   )}
                 </Box>
-                <Box
+                {/* <Box
                   sx={{
                     display: "flex",
                     alignItems: "baseline",
@@ -154,7 +152,7 @@ export default function Pricing() {
                   <Typography component="h3" variant="h6">
                     &nbsp; per month
                   </Typography>
-                </Box>
+                </Box> */}
                 <Divider
                   sx={{
                     my: 2,
@@ -196,7 +194,7 @@ export default function Pricing() {
                   </Box>
                 ))}
               </CardContent>
-              <CardActions>
+              {/* <CardActions>
                 <Button
                   fullWidth
                   variant={tier.buttonVariant}
@@ -206,7 +204,7 @@ export default function Pricing() {
                 >
                   {tier.buttonText}
                 </Button>
-              </CardActions>
+              </CardActions> */}
             </Card>
           </Grid>
         ))}

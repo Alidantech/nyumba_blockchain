@@ -1,7 +1,8 @@
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
-import Link from "@mui/joy/Link";
+import NavLink from "@mui/joy/Link";
+import {Link} from 'react-router-dom';
 import Typography from "@mui/joy/Typography";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
@@ -35,22 +36,20 @@ export default function OrdersPage() {
           separator={<ChevronRightRoundedIcon />}
           sx={{ pl: 0 }}
         >
-          <Link
-            underline="none"
-            color="neutral"
-            href="#some-link"
-            aria-label="Home"
-          >
-            <HomeRoundedIcon />
+          <Link to="/dashboard/home">
+            <NavLink underline="none" color="neutral" aria-label="Home">
+              <HomeRoundedIcon />
+            </NavLink>
           </Link>
-          <Link
-            underline="hover"
-            color="neutral"
-            href="#some-link"
-            fontSize={12}
-            fontWeight={500}
-          >
-            Dashboard
+          <Link to="/dashboard/home">
+            <NavLink
+              underline="hover"
+              color="neutral"
+              fontSize={12}
+              fontWeight={500}
+            >
+              Dashboard
+            </NavLink>
           </Link>
           <Typography color="primary" fontWeight={500} fontSize={12}>
             Orders

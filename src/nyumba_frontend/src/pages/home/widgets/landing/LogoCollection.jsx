@@ -35,7 +35,7 @@ export default function LogoCollection() {
 
   return (
     <Box id="logoCollection" sx={{ py: 4 }}>
-      <Typography
+      {/* <Typography
         component="p"
         variant="subtitle2"
         align="center"
@@ -53,7 +53,7 @@ export default function LogoCollection() {
             />
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }

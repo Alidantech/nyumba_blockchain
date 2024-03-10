@@ -16,32 +16,43 @@ import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
-    title: "Dashboard",
+    title: "EASY ACCESS TO INFORMATION",
     description:
-      "This item could provide a snapshot of the most important metrics or data points related to the product.",
+      "You don't have to incur the extra cost of asking around for a house anymore, we tell you everything.That land you desire to own, you get to know everything about it saving you the cost of getting that information from middlemen involved.",
     imageLight:
-      'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      'url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400")',
+    imageDark:
+      'url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400")',
+  },
+  {
+    icon: <ViewQuiltRoundedIcon />,
+    title: "TOKENIZATION",
+    description:
+      "Want to be a house owner, with the housing project endorsed by the president , we offer you a chance to be a house owner by the art of tokenization where with little funds you get to invest in a house as we incorporate Real Estate Investment Trusts (REITs)",
+    imageLight:
+      'url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400")',
+    imageDark:
+      'url("https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400")',
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
-    title: "Mobile integration",
+    title: "INVESTORS",
     description:
-      "This item could provide information about the mobile app version of the product.",
+      "We easen the land procurement processes that weigh you down. With our all inclusive platform, we offer land history for investors seeking to own a land. You get to track the title deed and land owners from the comfort of your own home",
     imageLight:
-      'url("/static/images/templates/templates-images/mobile-light.png")',
+      'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800")',
     imageDark:
-      'url("/static/images/templates/templates-images/mobile-dark.png")',
+      'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400")',
   },
   {
     icon: <DevicesRoundedIcon />,
-    title: "Available on all platforms",
+    title: "EASY TRANSFER OF LANDS",
     description:
-      "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
+      "We provide an easy way of land succession and purchase, where we use smart contracts which are legally binding to both the land owner and potential owner.",
     imageLight:
-      'url("/static/images/templates/templates-images/devices-light.png")',
+      'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400")',
     imageDark:
-      'url("/static/images/templates/templates-images/devices-dark.png")',
+      'url("https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400")',
   },
 ];
 
@@ -60,9 +71,9 @@ export default function Features() {
         <Grid item xs={12} md={6}>
           <div>
             <Typography component="h2" variant="h4" color="text.primary">
-              Product features
+              WHAT DO WE OFFER
             </Typography>
-            <Typography
+            {/* <Typography
               variant="body1"
               color="text.secondary"
               sx={{ mb: { xs: 2, sm: 4 } }}
@@ -70,7 +81,7 @@ export default function Features() {
               Here you can provide a brief overview of the key features of the
               product. For example, you could list the number of features, the
               types of features, add-ons, or the benefits of the features.
-            </Typography>
+            </Typography> */}
           </div>
           <Grid
             container
@@ -134,7 +145,8 @@ export default function Features() {
               </Typography>
               <Typography
                 color="text.secondary"
-                variant="body2"
+                // variant="small"
+                fontSize="0.8em"
                 sx={{ my: 0.5 }}
               >
                 {selectedFeature.description}
@@ -201,7 +213,7 @@ export default function Features() {
                     gap: 2.5,
                   }}
                 >
-                  <Box
+                  {/* <Box
                     sx={{
                       color: (theme) => {
                         if (theme.palette.mode === "light") {
@@ -216,7 +228,7 @@ export default function Features() {
                     }}
                   >
                     {icon}
-                  </Box>
+                  </Box> */}
                   <Box sx={{ textTransform: "none" }}>
                     <Typography
                       color="text.primary"
@@ -276,8 +288,8 @@ export default function Features() {
             <Box
               sx={{
                 m: "auto",
-                width: 420,
-                height: 500,
+                width: "100%",
+                height: "100%",
                 backgroundSize: "contain",
                 backgroundImage: (theme) =>
                   theme.palette.mode === "light"

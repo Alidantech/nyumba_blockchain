@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CssVarsProvider } from "@mui/joy/styles";
+import {} from "@mui/joy/styles";
 import { FocusTrap } from "@mui/base/FocusTrap";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
@@ -16,124 +16,106 @@ import Mails from "./widgets/cart/Mails";
 import EmailContent from "./widgets/cart/ItemContent";
 import WriteEmail from "./widgets/cart/WriteEmail";
 import Header from "./widgets/cart/Header";
+import List from "@mui/joy/List";
+import ListDivider from "@mui/joy/ListDivider";
+import ListItem from "@mui/joy/ListItem";
+import ListItemButton, { listItemButtonClasses } from "@mui/joy/ListItemButton";
+import ListItemDecorator from "@mui/joy/ListItemDecorator";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
   return (
-    <CssVarsProvider disableTransitionOnChange>
-      <CssBaseline />
-      {drawerOpen && (
-        <Layout.SideDrawer onClose={() => setDrawerOpen(false)}>
-          <Navigation />
-        </Layout.SideDrawer>
-      )}
-      <Stack
-        id="tab-bar"
-        direction="row"
-        justifyContent="space-around"
-        spacing={1}
-        sx={{
-          display: { xs: "flex", sm: "none" },
-          zIndex: "999",
-          bottom: 0,
-          position: "fixed",
-          width: "100dvw",
-          py: 2,
-          backgroundColor: "background.body",
-          borderTop: "1px solid",
-          borderColor: "divider",
-        }}
-      >
-        <Button
-          variant="plain"
-          color="neutral"
-          aria-pressed="true"
-          component="a"
-          href="/joy-ui/getting-started/templates/email/"
-          size="sm"
-          startDecorator={<EmailRoundedIcon />}
-          sx={{ flexDirection: "column", "--Button-gap": 0 }}
-        >
-          Email
-        </Button>
-        <Button
-          variant="plain"
-          color="neutral"
-          component="a"
-          href="/joy-ui/getting-started/templates/team/"
-          size="sm"
-          startDecorator={<PeopleAltRoundedIcon />}
-          sx={{ flexDirection: "column", "--Button-gap": 0 }}
-        >
-          Team
-        </Button>
-        <Button
-          variant="plain"
-          color="neutral"
-          component="a"
-          href="/joy-ui/getting-started/templates/files/"
-          size="sm"
-          startDecorator={<FolderRoundedIcon />}
-          sx={{ flexDirection: "column", "--Button-gap": 0 }}
-        >
-          Files
-        </Button>
-      </Stack>
-      <Layout.Root
-        sx={{
-          ...(drawerOpen && {
-            height: "100vh",
-            overflow: "hidden",
-          }),
-        }}
-      >
-        <Layout.Header>
-          <Header />
-        </Layout.Header>
-        <Layout.SideNav>
-          <Navigation />
-        </Layout.SideNav>
+    <>
+      <Layout.Root>
         <Layout.SidePane>
           <Box
             sx={{
-              p: 2,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
+              height: "90%",
+              overflow: "auto",
+              pt: { xs: 5, md: 0 },
             }}
           >
-            <Box sx={{ alignItems: "center", gap: 1 }}>
-              <Typography
-                level="title-lg"
-                textColor="text.secondary"
-                component="h1"
-              >
-                My inbox
-              </Typography>
-              <Typography level="title-sm" textColor="text.tertiary">
-                5 emails
-              </Typography>
-            </Box>
-            <Button
-              size="sm"
-              startDecorator={<CreateRoundedIcon />}
-              onClick={() => setOpen(true)}
-              sx={{ ml: "auto" }}
+            <Box
+              sx={{
+                p: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
             >
-              Compose email
-            </Button>
-            <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
-              <WriteEmail open={open} onClose={() => setOpen(false)} />
-            </FocusTrap>
+              <Box sx={{ alignItems: "center", gap: 1 }}>
+                <Typography
+                  level="title-lg"
+                  textColor="text.secondary"
+                  component="h1"
+                >
+                  My Cart
+                </Typography>
+                <Typography level="title-sm" textColor="text.tertiary">
+                  10 Items
+                </Typography>
+              </Box>
+              <Button
+                size="sm"
+                startDecorator={<CreateRoundedIcon />}
+                onClick={() => setOpen(true)}
+                sx={{ ml: "auto" }}
+              >
+                Add Items
+              </Button>
+              <FocusTrap open={open} disableAutoFocus disableEnforceFocus>
+                <WriteEmail open={open} onClose={() => setOpen(false)} />
+              </FocusTrap>
+            </Box>
+            <Mails />
+            <Stack
+              id="tab-bar"
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+              spacing={1}
+              sx={{
+                // display: { xs: "flex", sm: "none" },
+                zIndex: "999",
+                bottom: 0,
+                position: "fixed",
+                width: { xs: "100vw", sm: "85vw" },
+                py: 2,
+                backgroundColor: "background.body",
+                borderTop: "1px solid",
+                borderColor: "divider",
+              }}
+            >
+              <Box display="flex" alignItems="center" justifyContent="space-around" flexDirection="column">
+                <Typography level="title-lg">TOTAL:</Typography>
+                <Typography fontSize="1.5em" color="primary">
+                  {" "}
+                  $20000
+                </Typography>
+              </Box>
+
+              <Link to="/dashboard/cart/checkout">
+                <Button
+                  // variant="plain"
+                  color="primary"
+                  aria-pressed="true"
+                  size="lg"
+                  // startDecorator={<FolderRoundedIcon />}
+                  sx={{ flexDirection: "row" }}
+                >
+                  Checkout
+                </Button>
+              </Link>
+            </Stack>
           </Box>
-          <Mails />
         </Layout.SidePane>
         <Layout.Main>
           <EmailContent />
         </Layout.Main>
       </Layout.Root>
-    </CssVarsProvider>
+    </>
   );
 }
