@@ -10,7 +10,7 @@ export default function Copyright(props: any): JSX.Element {
       {...props}
     >
       {"Copyright © "}
-      <Link to="/">Nyumba ICP</Link> {new Date().getFullYear()}
+      <Link to="/">Nyumba Blockchain</Link> {new Date().getFullYear()}
       {"."}
     </Typography>
   );

@@ -21,11 +21,9 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import BrightnessAutoRoundedIcon from "@mui/icons-material/BrightnessAutoRounded";
 import ColorSchemeToggle from "../../pages/chat/widgets/ColorSchemeToggle";
 import { closeSidebar } from "../utils/utils";
-import { Link } from "react-router-dom";
 import { NavigationData } from "../../types/NavItem";
 import { Chip } from "@mui/joy";
-import { useAuth } from "../../context/auth.context";
-import { useNavigate } from "react-router-dom";
+import { useOutletContext, Link } from "react-router-dom";
 
 function Toggler(props: {
   defaultExpanded?: boolean;
@@ -63,12 +61,12 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
-  const authContext = useAuth();
-  const navigate = useNavigate();
+  const context = useOutletContext() as any;
+
+  const { logoutUser } = context;
 
   function handleLogout() {
-    authContext.clearAuthStatus;
-    navigate("/signin", { replace: true });
+    logoutUser();
   }
   return (
     <Sheet
@@ -129,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
             <IconButton variant="soft" color="primary" size="sm">
               <BrightnessAutoRoundedIcon />
             </IconButton>
-            <Typography level="title-lg">Nyumba ICP.</Typography>
+            <Typography>Nyumba Blockchain.</Typography>
           </Box>
         </Link>
         <ColorSchemeToggle sx={{ ml: "auto" }} />
@@ -237,10 +235,12 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
           }}
         >
           <ListItem>
+            <Link to="/">
             <ListItemButton>
               <SupportRoundedIcon />
               About
             </ListItemButton>
+            </Link>
           </ListItem>
           <ListItem>
             <ListItemButton>
@@ -253,19 +253,18 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
       <Divider />
 
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-        <Link to="/dashboard/profile">
-          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-            <Avatar
-              variant="outlined"
-              size="sm"
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
-            />
-            <Box sx={{ minWidth: 0, flex: 1 }}>
-              <Typography level="title-sm">Siriwat K.</Typography>
-              <Typography level="body-xs">siriwatk@test.com</Typography>
-            </Box>
+        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+          <Avatar
+            variant="outlined"
+            size="sm"
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
+          />
+          <Box sx={{ minWidth: 0, flex: 1 }}>
+            <Typography level="title-sm">Siriwat K.</Typography>
+            <Typography level="body-xs">siriwatk@test.com</Typography>
           </Box>
-        </Link>
+        </Box>
+
         <IconButton
           onClick={handleLogout}
           size="sm"

@@ -1,19 +1,15 @@
-import { PropsWithChildren, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Navigate, useOutletContext, Outlet } from "react-router-dom";
+import Dashboard from "../pages/home/Dashboard";
 
-import { useAuth } from "../context/auth.context";
+const ProtectedRoute = ({ role }: { role: string }) => {
+  const context: any = useOutletContext();
+  console.log(context);
+  if (!context.user || !context.user?.role) {
+    return <Navigate to="/signin" replace />;
+  }
 
-type ProtectedRouteProps = PropsWithChildren;
+  return <Dashboard children={<Outlet context={context} />} />;
+};
 
-export default function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const user = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user === null) {
-      navigate("/signin", { replace: true });
-    }
-  }, [navigate, user]);
-
-  return children;
-}
+export default ProtectedRoute;

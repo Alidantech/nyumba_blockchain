@@ -3,23 +3,27 @@ import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Header from "../../common/widgets/Header";
 import Sidebar from "../../common/widgets/Sidebar";
-import { Outlet } from "react-router-dom";
 import theme from "../../theme/DashboardTheme";
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import {
   buyerNavigationData,
   sellerNavigationData,
   adminNavigationData,
   govtAgentNavigationData,
 } from "../../common/utils/navData";
-import { useAuth } from "../../context/auth.context";
 import { NavigationData } from "../../types/NavItem";
+import { useOutletContext } from "react-router-dom";
 
-export default function Dashboard() {
+export default function Dashboard({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const auth = useAuth(); // Access user information from the context
-  const role = auth ? auth.role : null;
+
+  const context = useOutletContext() as any;
+
+  const role = context.user?.role;
+
   const currentPath = location.pathname.split("/").pop() || "dashboard";
+
+  document.title = "Nyumba | " + currentPath.toLocaleLowerCase();
 
   // Determine the navigation data based on the user's role
   let navigationData: NavigationData;
@@ -48,7 +52,7 @@ export default function Dashboard() {
         <Sidebar currentPage={currentPath} navigationData={navigationData} />
         <Header />
         {/* Render all dashboard pages here */}
-        <Outlet />
+        {children}
       </Box>
     </CssVarsProvider>
   );

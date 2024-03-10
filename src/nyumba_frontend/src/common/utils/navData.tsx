@@ -21,67 +21,83 @@ export const sellerNavigationData: NavigationData = [
   {
     route: "/dashboard//products",
     icon: <StorefrontRoundedIcon />,
-    title: " Products",
+    title: "My Products",
     currentPage: "Products",
+    nested: [
+      {
+        route: "/dashboard/properties/rental",
+        title: "Rentals",
+        currentPage: "rentals",
+      },
+      {
+        route: "/dashboard/properties/real-estate",
+        title: "Real Estates",
+        currentPage: "real-estates",
+      },
+      {
+        route: "/dashboard/properties/land",
+        title: "Lands",
+        currentPage: "lands",
+      },
+      {
+        route: "/dashboard/properties/lease-land",
+        title: "Lease Lands",
+        currentPage: "lease-land",
+      },
+    ],
   },
   {
-    route: "/dashboard//orders",
+    route: "/dashboard/orders",
     icon: <AssignmentRoundedIcon />,
     title: "Orders",
     currentPage: "Orders",
   },
   {
-    route: "/dashboard//customers",
+    route: "/dashboard/customers",
     icon: <GroupRoundedIcon />,
     title: "Customers",
     currentPage: "Customers",
   },
   {
-    route: "/dashboard//messages",
+    route: "/dashboard/chat",
     icon: <ContactMailRoundedIcon />,
-    title: "Messages",
-    currentPage: "Messages",
+    title: "Chat",
+    currentPage: "chat",
   },
   {
-    route: "/dashboard//finance",
+    route: "/dashboard/finance",
     icon: <AccountBalanceRoundedIcon />,
     title: "Finance",
     currentPage: "Finance",
-  },
-  {
-    route: "/dashboard//settings",
-    icon: <SettingsRoundedIcon />,
-    title: " Settings",
-    currentPage: "Settings",
   },
 ];
 
 // Define navigation data for govtAgents
 export const govtAgentNavigationData: NavigationData = [
   {
-    route: "/dashboard/govtAgent/cases",
+    route: "/dashboard/cases",
     icon: <AssignmentRoundedIcon />,
     title: "Cases",
     currentPage: "govtAgentCases",
   },
   {
-    route: "/dashboard/govtAgent/documents",
+    route: "/dashboard/documents",
     icon: <ContactMailRoundedIcon />,
     title: "Documents",
     currentPage: "govtAgentDocuments",
     nested: [
       {
-        route: "/dashboard/govtAgent/documents/requests",
+        route: "/dashboard/documents/requests",
         title: "Requests",
         currentPage: "govtAgentDocumentRequests",
       },
       {
-        route: "/dashboard/govtAgent/documents/accepted",
+        route: "/dashboard/documents/accepted",
         title: "Accepted",
         currentPage: "govtAgentDocumentAccepted",
       },
       {
-        route: "/dashboard/govtAgent/documents/declined",
+        route: "/dashboard/documents/declined",
         title: "Declined",
         currentPage: "govtAgentDocumentDeclined",
       },
@@ -90,7 +106,7 @@ export const govtAgentNavigationData: NavigationData = [
   {
     route: "/dashboard/chat",
     icon: <QuestionAnswerRoundedIcon />,
-    title: "chat",
+    title: "Chat",
     currentPage: "chat",
     badge: 4,
   },
@@ -158,6 +174,12 @@ export const adminNavigationData: NavigationData = [
       },
     ],
   },
+  {
+    route: "/dashboard/finance",
+    icon: <AccountBalanceRoundedIcon />,
+    title: "Finance",
+    currentPage: "Finance",
+  },
 ];
 
 // Define navigation data for buyers
@@ -166,27 +188,27 @@ export const buyerNavigationData: NavigationData = [
     route: "/dashboard/properties",
     icon: <BusinessRoundedIcon />,
     title: "Properties",
-    currentPage: "buyerProperties",
+    currentPage: "properties",
     nested: [
       {
-        route: "/dashboard/rentals",
+        route: "/dashboard/properties/rental",
         title: "Rentals",
-        currentPage: "buyerRentals",
+        currentPage: "rentals",
       },
       {
-        route: "/dashboard/lands",
-        title: "Lands",
-        currentPage: "buyerLands",
-      },
-      {
-        route: "/dashboard/houses",
-        title: "Houses",
-        currentPage: "buyerHouses",
-      },
-      {
-        route: "/dashboard/real-estates",
+        route: "/dashboard/properties/real-estate",
         title: "Real Estates",
-        currentPage: "buyerRealEstates",
+        currentPage: "real-estates",
+      },
+      {
+        route: "/dashboard/properties/land",
+        title: "Lands",
+        currentPage: "lands",
+      },
+      {
+        route: "/dashboard/properties/lease-land",
+        title: "Lease Lands",
+        currentPage: "lease-land",
       },
     ],
   },

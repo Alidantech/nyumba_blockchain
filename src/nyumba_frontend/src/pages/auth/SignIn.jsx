@@ -17,19 +17,14 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "../../common/widgets/Footer";
 import getLPTheme from "../../theme/getLPTheme";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
-// Import the useAuth hook
-import { useAuth } from "../../context/auth.context";
-
-const defaultTheme = createTheme();
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 export default function SignIn() {
-  const [selectedRole, setSelectedRole] = React.useState("buyer");
-
-  // Use the useAuth hook to get access to the authentication context
-  const authContext = useAuth();
+  const context = useOutletContext();
   const navigate = useNavigate();
+
+  const { setUser } = context;
+  const [selectedRole, setSelectedRole] = React.useState(null);
 
   const handleRoleChange = (event) => {
     setSelectedRole(event.target.value);
@@ -37,20 +32,13 @@ export default function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Use context functions to set authentication items
-    authContext.setAuthStatus(true);
-    authContext.setUserRole(selectedRole);
-
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      role: selectedRole,
-    });
 
-    // Navigate to /dashboard
-    navigate("/dashboard", { replace: true });
+    setUser({ id: 1, username: data.get("email"), role: selectedRole});
+
+
+
+    navigate("/dashboard/home/", { replace: true });
   };
   const LPtheme = createTheme(getLPTheme("dark"));
 

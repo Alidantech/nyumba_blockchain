@@ -11,10 +11,9 @@ import Search from "./widgets/rental/Search";
 import Filters from "./widgets/rental/Filters";
 import Pagination from "./widgets/rental/Pagination";
 
-export default function Rental() {
+export default function LeaseLand() {
   return (
-    <CssVarsProvider disableTransitionOnChange>
-      <CssBaseline />
+    <>
       <NavBar />
       <Box
         component="main"
@@ -91,6 +90,6 @@ export default function Rental() {
         </Stack>
         <Pagination />
       </Box>
-    </CssVarsProvider>
+    </>
   );
 }
