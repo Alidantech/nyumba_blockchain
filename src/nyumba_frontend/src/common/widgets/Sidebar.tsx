@@ -63,7 +63,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
   const context = useOutletContext() as any;
 
-  const { logoutUser } = context;
+  const { logoutUser, user } = context;
 
   function handleLogout() {
     logoutUser();
@@ -162,7 +162,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
           }}
         >
           <ListItem>
-            <Link to="/dashboard/home">
+            <Link to="/home">
               <ListItemButton selected={currentPage === "home"}>
                 <HomeRoundedIcon />
                 <ListItemContent>
@@ -239,10 +239,10 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
         >
           <ListItem>
             <Link to="/">
-            <ListItemButton>
-              <SupportRoundedIcon />
-              About
-            </ListItemButton>
+              <ListItemButton>
+                <SupportRoundedIcon />
+                About
+              </ListItemButton>
             </Link>
           </ListItem>
           <ListItem>
@@ -262,10 +262,12 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, navigationData }) => {
             size="sm"
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
           />
-          <Box sx={{ minWidth: 0, flex: 1 }}>
-            <Typography level="title-sm">Siriwat K.</Typography>
-            <Typography level="body-xs">siriwatk@test.com</Typography>
-          </Box>
+          <Link to="/profile">
+            <Box sx={{ minWidth: 0, flex: 1 }}>
+              <Typography level="title-sm">{user.name}</Typography>
+              <Typography level="body-xs">{user.role}</Typography>
+            </Box>
+          </Link>
         </Box>
 
         <IconButton

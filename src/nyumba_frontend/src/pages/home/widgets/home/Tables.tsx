@@ -57,21 +57,21 @@ export default function TableFiles() {
       <thead>
         <tr>
           <th>
-            <Typography level="title-sm">Folder</Typography>
+            <Typography level="title-sm">Good Morning, John</Typography>
           </th>
           <th>
-            <Typography
+            {/* <Typography
               level="title-sm"
               endDecorator={<ArrowDropDownRoundedIcon />}
             >
               Last modified
-            </Typography>
+            </Typography> */}
           </th>
           <th>
-            <Typography level="title-sm">Size</Typography>
+            {/* <Typography level="title-sm">Size</Typography> */}
           </th>
           <th>
-            <Typography level="title-sm">Users</Typography>
+            <Typography level="title-sm">Bal: 300</Typography>
           </th>
         </tr>
       </thead>
@@ -80,17 +80,17 @@ export default function TableFiles() {
           <td>
             <Typography
               level="title-sm"
-              startDecorator={<FolderRoundedIcon color="primary" />}
+              // startDecorator={<FolderRoundedIcon color="primary" />}
               sx={{ alignItems: "flex-start" }}
             >
-              Travel pictures
+              New Lands
             </Typography>
           </td>
           <td>
-            <Typography level="body-sm">21 Oct 2023, 3PM</Typography>
+            <Typography level="body-sm">$400, $300 ...</Typography>
           </td>
           <td>
-            <Typography level="body-sm">987.5MB</Typography>
+            <Typography level="body-sm">3 acre, 50x50</Typography>
           </td>
           <td>
             <AvatarGroup
@@ -98,19 +98,19 @@ export default function TableFiles() {
               sx={{ "--AvatarGroup-gap": "-8px", "--Avatar-size": "24px" }}
             >
               <Avatar
-                src="https://i.pravatar.cc/24?img=6"
+                src="https://picsumn.photos/200/?random=6"
                 srcSet="https://i.pravatar.cc/48?img=6 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=7"
+                src="https://picsumn.photos/200/?random=7"
                 srcSet="https://i.pravatar.cc/48?img=7 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=8"
+                src="https://picsumn.photos/200/?random=8"
                 srcSet="https://i.pravatar.cc/48?img=8 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=9"
+                src="https://picsumn.photos/200/?random=9"
                 srcSet="https://i.pravatar.cc/48?img=9 2x"
               />
             </AvatarGroup>
@@ -120,17 +120,17 @@ export default function TableFiles() {
           <td>
             <Typography
               level="title-sm"
-              startDecorator={<FolderRoundedIcon color="primary" />}
+              // startDecorator={<FolderRoundedIcon color="primary" />}
               sx={{ alignItems: "flex-start" }}
             >
-              Important documents
+              Find Rentals Near Your
             </Typography>
           </td>
           <td>
-            <Typography level="body-sm">26 Sep 2023, 7PM</Typography>
+            <Typography level="body-sm">$30, $49 ...</Typography>
           </td>
           <td>
-            <Typography level="body-sm">232.3MB</Typography>
+            <Typography level="body-sm">2 bedrooms</Typography>
           </td>
           <td>
             <AvatarGroup
@@ -138,19 +138,19 @@ export default function TableFiles() {
               sx={{ "--AvatarGroup-gap": "-8px", "--Avatar-size": "24px" }}
             >
               <Avatar
-                src="https://i.pravatar.cc/24?img=1"
+                src="https://picsumn.photos/200/?random=1"
                 srcSet="https://i.pravatar.cc/48?img=1 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=9"
+                src="https://picsumn.photos/200/?random=9"
                 srcSet="https://i.pravatar.cc/48?img=9 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=2"
+                src="https://picsumn.photos/200/?random=2"
                 srcSet="https://i.pravatar.cc/48?img=2 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=3"
+                src="https://picsumn.photos/200/?random=3"
                 srcSet="https://i.pravatar.cc/48?img=3 2x"
               />
               <Avatar>+3</Avatar>
@@ -161,17 +161,17 @@ export default function TableFiles() {
           <td>
             <Typography
               level="title-sm"
-              startDecorator={<FolderRoundedIcon color="primary" />}
+              // startDecorator={<FolderRoundedIcon color="primary" />}
               sx={{ alignItems: "flex-start" }}
             >
-              Projects
+              Buy Real Estates 
             </Typography>
           </td>
           <td>
-            <Typography level="body-sm">12 Aug 2021, 7PM</Typography>
+            <Typography level="body-sm">$30k, $40k ..</Typography>
           </td>
           <td>
-            <Typography level="body-sm">1.6GB</Typography>
+            <Typography level="body-sm">beach houses</Typography>
           </td>
           <td>
             <AvatarGroup
@@ -179,15 +179,15 @@ export default function TableFiles() {
               sx={{ "--AvatarGroup-gap": "-8px", "--Avatar-size": "24px" }}
             >
               <Avatar
-                src="https://i.pravatar.cc/24?img=4"
+                src="https://picsumn.photos/200/?random=4"
                 srcSet="https://i.pravatar.cc/48?img=4 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=8"
+                src="https://picsumn.photos/200/?random=8"
                 srcSet="https://i.pravatar.cc/48?img=8 2x"
               />
               <Avatar
-                src="https://i.pravatar.cc/24?img=5"
+                src="https://picsumn.photos/200/?random=5"
                 srcSet="https://i.pravatar.cc/48?img=5 2x"
               />
             </AvatarGroup>
@@ -197,22 +197,22 @@ export default function TableFiles() {
           <td>
             <Typography
               level="title-sm"
-              startDecorator={<FolderRoundedIcon color="primary" />}
+              // startDecorator={<FolderRoundedIcon color="primary" />}
               sx={{ alignItems: "flex-start" }}
             >
-              Invoices
+              Lease farm land
             </Typography>
           </td>
           <td>
-            <Typography level="body-sm">14 Mar 2021, 7PM</Typography>
+            <Typography level="body-sm">$40 per month...</Typography>
           </td>
           <td>
-            <Typography level="body-sm">123.3KB</Typography>
+            <Typography level="body-sm">Loam Soil</Typography>
           </td>
           <td>
             <Avatar
               size="sm"
-              src="https://i.pravatar.cc/24?img=2"
+              src="https://picsumn.photos/200/?random=2"
               srcSet="https://i.pravatar.cc/48?img=2 2x"
               sx={{ "--Avatar-size": "24px" }}
             />
@@ -253,10 +253,10 @@ export function MobileTableFiles() {
               >
                 <Typography
                   level="title-sm"
-                  startDecorator={<FolderRoundedIcon color="primary" />}
+                  // startDecorator={<FolderRoundedIcon color="primary" />}
                   sx={{ alignItems: "flex-start" }}
                 >
-                  Travel pictures
+                  New Rentals
                 </Typography>
                 <AvatarGroup
                   size="sm"
@@ -266,19 +266,19 @@ export function MobileTableFiles() {
                   }}
                 >
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=6"
+                    src="https://picsumn.photos/200/?random=6"
                     srcSet="https://i.pravatar.cc/48?img=6 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=7"
+                    src="https://picsumn.photos/200/?random=7"
                     srcSet="https://i.pravatar.cc/48?img=7 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=8"
+                    src="https://picsumn.photos/200/?random=8"
                     srcSet="https://i.pravatar.cc/48?img=8 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=9"
+                    src="https://picsumn.photos/200/?random=9"
                     srcSet="https://i.pravatar.cc/48?img=9 2x"
                   />
                 </AvatarGroup>
@@ -290,9 +290,9 @@ export function MobileTableFiles() {
                   mt: 2,
                 }}
               >
-                <Typography level="body-sm">987.5MB</Typography>
+                <Typography level="body-sm">Get for as low as $300</Typography>
 
-                <Typography level="body-sm">21 Oct 2023, 3PM</Typography>
+                <Typography level="body-sm">20 km</Typography>
               </Box>
             </ListItemContent>
           </ListItemButton>
@@ -309,10 +309,10 @@ export function MobileTableFiles() {
               >
                 <Typography
                   level="title-sm"
-                  startDecorator={<FolderRoundedIcon color="primary" />}
+                  // startDecorator={<FolderRoundedIcon color="primary" />}
                   sx={{ alignItems: "flex-start" }}
                 >
-                  Important documents
+                  Find Land For Lease
                 </Typography>
                 <AvatarGroup
                   size="sm"
@@ -322,22 +322,22 @@ export function MobileTableFiles() {
                   }}
                 >
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=1"
+                    src="https://picsumn.photos/200/?random=1"
                     srcSet="https://i.pravatar.cc/48?img=1 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=9"
+                    src="https://picsumn.photos/200/?random=9"
                     srcSet="https://i.pravatar.cc/48?img=9 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=2"
+                    src="https://picsumn.photos/200/?random=2"
                     srcSet="https://i.pravatar.cc/48?img=2 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=3"
+                    src="https://picsumn.photos/200/?random=3"
                     srcSet="https://i.pravatar.cc/48?img=3 2x"
                   />
-                  <Avatar>+3</Avatar>
+                  <Avatar>+3k</Avatar>
                 </AvatarGroup>
               </Box>
               <Box
@@ -347,9 +347,9 @@ export function MobileTableFiles() {
                   mt: 2,
                 }}
               >
-                <Typography level="body-sm">232.3MB</Typography>
+                <Typography level="body-sm">Lease for upto $40 per month</Typography>
 
-                <Typography level="body-sm">26 Sep 2023, 7PM</Typography>
+                <Typography level="body-sm">3km</Typography>
               </Box>
             </ListItemContent>
           </ListItemButton>
@@ -366,10 +366,10 @@ export function MobileTableFiles() {
               >
                 <Typography
                   level="title-sm"
-                  startDecorator={<FolderRoundedIcon color="primary" />}
+                  // startDecorator={<FolderRoundedIcon color="primary" />}
                   sx={{ alignItems: "flex-start" }}
                 >
-                  Projects
+                  New Rentals
                 </Typography>
                 <AvatarGroup
                   size="sm"
@@ -379,15 +379,15 @@ export function MobileTableFiles() {
                   }}
                 >
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=4"
+                    src="https://picsumn.photos/200/?random=4"
                     srcSet="https://i.pravatar.cc/48?img=4 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=8"
+                    src="https://picsumn.photos/200/?random=8"
                     srcSet="https://i.pravatar.cc/48?img=8 2x"
                   />
                   <Avatar
-                    src="https://i.pravatar.cc/24?img=5"
+                    src="https://picsumn.photos/200/?random=5"
                     srcSet="https://i.pravatar.cc/48?img=5 2x"
                   />
                 </AvatarGroup>
@@ -399,9 +399,9 @@ export function MobileTableFiles() {
                   mt: 2,
                 }}
               >
-                <Typography level="body-sm">1.6GB</Typography>
+                <Typography level="body-sm">Beach apartments at $900</Typography>
 
-                <Typography level="body-sm">12 Aug 2021, 7PM</Typography>
+                <Typography level="body-sm">300km</Typography>
               </Box>
             </ListItemContent>
           </ListItemButton>
@@ -419,14 +419,14 @@ export function MobileTableFiles() {
               >
                 <Typography
                   level="title-sm"
-                  startDecorator={<FolderRoundedIcon color="primary" />}
+                  // startDecorator={<FolderRoundedIcon color="primary" />}
                   sx={{ alignItems: "flex-start" }}
                 >
-                  Invoices
+                  Real Estates
                 </Typography>
                 <Avatar
                   size="sm"
-                  src="https://i.pravatar.cc/24?img=2"
+                  src="https://picsumn.photos/200/?random=2"
                   srcSet="https://i.pravatar.cc/48?img=2 2x"
                   sx={{ "--Avatar-size": "24px" }}
                 />
@@ -438,9 +438,9 @@ export function MobileTableFiles() {
                   mt: 2,
                 }}
               >
-                <Typography level="body-sm">123.3KB</Typography>
+                <Typography level="body-sm"> Buy For $50000</Typography>
 
-                <Typography level="body-sm">14 Mar 2021, 7PM</Typography>
+                <Typography level="body-sm">6km</Typography>
               </Box>
             </ListItemContent>
           </ListItemButton>

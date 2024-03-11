@@ -53,7 +53,7 @@ export default function ChatsPane(props: ChatsPaneProps) {
           }
           sx={{ mr: "auto" }}
         >
-          Messages
+        Contact Admins
         </Typography>
         <IconButton
           variant="plain"

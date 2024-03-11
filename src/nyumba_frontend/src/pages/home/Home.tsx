@@ -33,6 +33,7 @@ export default function FilesExample() {
             <TableFiles />
           </Sheet>
           <MobileTableFiles />
+          {/* <Stack>Recently Viewed</Stack> */}
           <RecentItems />
         </Box>
       </Layout.Main>

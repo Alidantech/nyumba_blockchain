@@ -11,66 +11,72 @@ import RealEstate from "../pages/shop/RealEstate";
 import LeaseLand from "../pages/shop/LeaseLand";
 import Rental from "../pages/shop/Rental";
 import { RouteObject } from "react-router-dom";
+import Profile from "../pages/auth/Profile";
 
 // Define the function that returns RouteObject[][]
 export const getBuyerRoutes: () => RouteObject[][] = () => [
   {
     //@ts-ignore
-    path: "/dashboard/home",
+    path: "/home",
     element: <HomePage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/orders",
+    path: "/orders",
     element: <OrdersPage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/chat",
+    path: "/chat",
     element: <ChatsPage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/profile",
+    path: "/profile",
     element: <MyProfile />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/properties/rental",
+    path: "/properties/rental",
     element: <Rental />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/properties/real-estate",
+    path: "/properties/real-estate",
     element: <RealEstate />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/properties/land",
+    path: "/properties/land",
     element: <Land />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/properties/lease-land",
+    path: "/properties/lease-land",
     element: <LeaseLand />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/cart",
+    path: "/cart",
     element: <Cart />,
   },
   {
     //@ts-ignore
-    path: "/dashboard/cart/checkout",
+    path: "/cart/checkout",
     element: <CheckoutPage />,
+  },
+  {
+    //@ts-ignore
+    path: "/cart/checkout",
+    element: <Profile />,
   },
 ];
 

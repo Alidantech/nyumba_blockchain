@@ -100,10 +100,8 @@ function RowMenu() {
       </MenuButton>
       <Menu size="sm" sx={{ minWidth: 140 }}>
         <MenuItem>Edit</MenuItem>
-        <MenuItem>Rename</MenuItem>
-        <MenuItem>Move</MenuItem>
         <Divider />
-        <MenuItem color="danger">Delete</MenuItem>
+        <MenuItem color="danger">Cancel</MenuItem>
       </Menu>
     </Dropdown>
   );
@@ -111,81 +109,102 @@ function RowMenu() {
 
 export default function OrderList() {
   return (
-    <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
-      {listItems.map((listItem) => (
-        <List
-          key={listItem.id}
-          size="sm"
-          sx={{
-            '--ListItem-paddingX': 0,
-          }}
-        >
-          <ListItem
+    <Box sx={{ display: { xs: "block", sm: "none" , overflow:"hidden"} }}>
+      <Box
+      sx={{
+        height: "90%",
+        overflow: "auto"
+
+      }}
+      >
+        {listItems.map((listItem) => (
+          <List
+            key={listItem.id}
+            size="sm"
             sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'start',
+              "--ListItem-paddingX": 0,
             }}
           >
-            <ListItemContent sx={{ display: 'flex', gap: 2, alignItems: 'start' }}>
-              <ListItemDecorator>
-                <Avatar size="sm">{listItem.customer.initial}</Avatar>
-              </ListItemDecorator>
-              <div>
-                <Typography fontWeight={600} gutterBottom>
-                  {listItem.customer.name}
-                </Typography>
-                <Typography level="body-xs" gutterBottom>
-                  {listItem.customer.email}
-                </Typography>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: 0.5,
-                    mb: 1,
-                  }}
-                >
-                  <Typography level="body-xs">{listItem.date}</Typography>
-                  <Typography level="body-xs">&bull;</Typography>
-                  <Typography level="body-xs">{listItem.id}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                  <Link level="body-sm" component="button">
-                    Download
-                  </Link>
-                  <RowMenu />
-                </Box>
-              </div>
-            </ListItemContent>
-            <Chip
-              variant="soft"
-              size="sm"
-              startDecorator={
-                {
-                  Paid: <CheckRoundedIcon />,
-                  Refunded: <AutorenewRoundedIcon />,
-                  Cancelled: <BlockIcon />,
-                }[listItem.status]
-              }
-              color={
-                {
-                  Paid: 'success',
-                  Refunded: 'neutral',
-                  Cancelled: 'danger',
-                }[listItem.status] as ColorPaletteProp
-              }
+            <ListItem
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "start",
+              }}
             >
-              {listItem.status}
-            </Chip>
-          </ListItem>
-          <ListDivider />
-        </List>
-      ))}
+              <ListItemContent
+                sx={{ display: "flex", gap: 2, alignItems: "start" }}
+              >
+                <ListItemDecorator>
+                  <Avatar size="sm">{listItem.customer.initial}</Avatar>
+                </ListItemDecorator>
+                <div>
+                  <Typography fontWeight={600} gutterBottom>
+                    {listItem.customer.name}
+                  </Typography>
+                  <Typography level="body-xs" gutterBottom>
+                    {listItem.customer.email}
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: 0.5,
+                      mb: 1,
+                    }}
+                  >
+                    <Typography level="body-xs">{listItem.date}</Typography>
+                    <Typography level="body-xs">&bull;</Typography>
+                    <Typography level="body-xs">{listItem.id}</Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 1,
+                      mb: 1,
+                    }}
+                  >
+                    <Link level="body-sm" component="button">
+                      View
+                    </Link>
+                    <RowMenu />
+                  </Box>
+                </div>
+              </ListItemContent>
+              <Chip
+                variant="soft"
+                size="sm"
+                startDecorator={
+                  {
+                    Paid: <CheckRoundedIcon />,
+                    Refunded: <AutorenewRoundedIcon />,
+                    Cancelled: <BlockIcon />,
+                  }[listItem.status]
+                }
+                color={
+                  {
+                    Paid: "success",
+                    Refunded: "neutral",
+                    Cancelled: "danger",
+                  }[listItem.status] as ColorPaletteProp
+                }
+              >
+                {listItem.status}
+              </Chip>
+            </ListItem>
+            <ListDivider />
+          </List>
+        ))}
+      </Box>
       <Box
         className="Pagination-mobile"
-        sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', py: 2 }}
+        sx={{
+          display: { xs: "flex", md: "none" },
+          alignItems: "center",
+          py: 2,
+        }}
       >
         <IconButton
           aria-label="previous page"

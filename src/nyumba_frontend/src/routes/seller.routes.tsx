@@ -3,10 +3,10 @@ import OrdersPage from "../pages/cart/Orders";
 import Cart from "../pages/cart/Cart";
 import ChatsPage from "../pages/chat/Chat";
 import MyProfile from "../pages/auth/Profile";
-import Land from "../pages/shop/Land";
-import RealEstate from "../pages/shop/RealEstate";
-import LeaseLand from "../pages/shop/LeaseLand";
-import Rental from "../pages/shop/Rental";
+import Land from "../pages/vendor/Land";
+import RealEstate from "../pages/vendor/RealEstate";
+import LeaseLand from "../pages/vendor/LeaseLand";
+import Rental from "../pages/vendor/Rental";
 import { RouteProps } from "react-router-dom";
 
 export type RouteObject = RouteProps & {
@@ -17,26 +17,45 @@ export const getSellerRoutes: () => RouteObject[][] = () => [
   {
     //@ts-ignore
 
-    path: "/dashboard/home",
+    path: "/home",
     element: <HomePage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/orders",
+    path: "/orders",
     element: <OrdersPage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/chat",
+    path: "/chat",
     element: <ChatsPage />,
   },
   {
     //@ts-ignore
-
-    path: "/dashboard/profile",
+    path: "/profile",
     element: <MyProfile />,
+  },
+  {
+    //@ts-ignore
+    path: "/properties/my-rental",
+    element: <Rental />,
+  },
+  {
+    //@ts-ignore
+    path: "/properties/my-land",
+    element: <Land />,
+  },
+  {
+    //@ts-ignore
+    path: "/properties/my-real-estate",
+    element: <RealEstate />,
+  },
+  {
+    //@ts-ignore
+    path: "/properties/my-lease-land",
+    element: <LeaseLand />,
   },
 ];
 

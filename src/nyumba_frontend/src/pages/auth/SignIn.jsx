@@ -38,7 +38,7 @@ export default function SignIn() {
 
 
 
-    navigate("/dashboard/home/", { replace: true });
+    navigate("/home/", { replace: true });
   };
   const LPtheme = createTheme(getLPTheme("dark"));
 

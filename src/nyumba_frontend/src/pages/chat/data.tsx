@@ -4,46 +4,46 @@ import { ChatProps, UserProps } from "./types";
 export const users: UserProps[] = [
   {
     name: "Steve E.",
-    username: "@steveEberger",
+    username: "Land",
     avatar: "/static/images/avatar/2.jpg",
     online: true,
   },
   {
     name: "Katherine Moss",
-    username: "@kathy",
+    username: "Land Lease",
     avatar: "/static/images/avatar/3.jpg",
-    online: false,
+    online: true,
   },
   {
     name: "Phoenix Baker",
-    username: "@phoenix",
+    username: "Real Estate",
     avatar: "/static/images/avatar/1.jpg",
     online: true,
   },
   {
     name: "Eleanor Pena",
-    username: "@eleanor",
+    username: "Rentals",
     avatar: "/static/images/avatar/4.jpg",
-    online: false,
-  },
-  {
-    name: "Kenny Peterson",
-    username: "@kenny",
-    avatar: "/static/images/avatar/5.jpg",
     online: true,
   },
-  {
-    name: "Al Sanders",
-    username: "@al",
-    avatar: "/static/images/avatar/6.jpg",
-    online: true,
-  },
-  {
-    name: "Melissa Van Der Berg",
-    username: "@melissa",
-    avatar: "/static/images/avatar/7.jpg",
-    online: false,
-  },
+  // {
+  //   name: "Kenny Peterson",
+  //   username: "@kenny",
+  //   avatar: "/static/images/avatar/5.jpg",
+  //   online: true,
+  // },
+  // {
+  //   name: "Al Sanders",
+  //   username: "@al",
+  //   avatar: "/static/images/avatar/6.jpg",
+  //   online: true,
+  // },
+  // {
+  //   name: "Melissa Van Der Berg",
+  //   username: "@melissa",
+  //   avatar: "/static/images/avatar/7.jpg",
+  //   online: false,
+  // },
 ];
 
 export const chats: ChatProps[] = [
@@ -231,45 +231,45 @@ export const chats: ChatProps[] = [
     ],
   },
 
-  {
-    id: "5",
-    sender: users[4],
-    messages: [
-      {
-        id: "1",
-        content: "Sup",
-        timestamp: "5 mins ago",
-        sender: users[4],
-        unread: true,
-      },
-    ],
-  },
-  {
-    id: "6",
-    sender: users[5],
-    messages: [
-      {
-        id: "1",
-        content: "Heyo",
-        timestamp: "5 mins ago",
-        sender: "You",
-        unread: true,
-      },
-    ],
-  },
+  // {
+  //   id: "5",
+  //   sender: users[4],
+  //   messages: [
+  //     {
+  //       id: "1",
+  //       content: "Sup",
+  //       timestamp: "5 mins ago",
+  //       sender: users[4],
+  //       unread: true,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: "6",
+  //   sender: users[5],
+  //   messages: [
+  //     {
+  //       id: "1",
+  //       content: "Heyo",
+  //       timestamp: "5 mins ago",
+  //       sender: "You",
+  //       unread: true,
+  //     },
+  //   ],
+  // },
 
-  {
-    id: "7",
-    sender: users[6],
-    messages: [
-      {
-        id: "1",
-        content:
-          "Hey Olivia, I've finished with the requirements doc! I made some notes in the gdoc as well for Phoenix to look over.",
-        timestamp: "5 mins ago",
-        sender: users[6],
-        unread: true,
-      },
-    ],
-  },
+  // {
+  //   id: "7",
+  //   sender: users[6],
+  //   messages: [
+  //     {
+  //       id: "1",
+  //       content:
+  //         "Hey Olivia, I've finished with the requirements doc! I made some notes in the gdoc as well for Phoenix to look over.",
+  //       timestamp: "5 mins ago",
+  //       sender: users[6],
+  //       unread: true,
+  //     },
+  //   ],
+  // },
 ];

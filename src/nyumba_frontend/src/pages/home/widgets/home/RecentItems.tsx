@@ -62,451 +62,451 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
           },
         }}
       > */}
-        <Card variant="outlined" size="sm">
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">lotr-two-towers.pdf</Typography>
-              <Typography level="body-sm">132.2MB</Typography>
-            </Box>
-            <Dropdown>
-              <MenuButton
-                variant="plain"
-                size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                  borderRadius: "9999999px",
-                }}
-              >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
-                size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
-              >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
+      <Card variant="outlined" size="sm">
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Kilimani Real Estate</Typography>
+            <Typography level="body-sm">$4500</Typography>
           </Box>
-          <CardOverflow
-            sx={{
-              borderBottom: "1px solid",
-              borderTop: "1px solid",
-              borderColor: "neutral.outlinedBorder",
-            }}
-          >
-            <AspectRatio ratio="16/9" color="primary" sx={{ borderRadius: 0 }}>
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format"
-                srcSet="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format&dpr=2 2x"
-              />
-            </AspectRatio>
-          </CardOverflow>
-          <Typography level="body-xs">Added 27 Jun 2023</Typography>
-        </Card>
-        <Card variant="outlined" size="sm">
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">photos-travel.zip</Typography>
-              <Typography level="body-sm">2.4GB</Typography>
-            </Box>
-            <Dropdown>
-              <MenuButton
-                variant="plain"
-                size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                }}
-              >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
-                size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
-              >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
-          </Box>
-          <CardOverflow
-            sx={{
-              borderBottom: "1px solid",
-              borderTop: "1px solid",
-              borderColor: "neutral.outlinedBorder",
-            }}
-          >
-            <AspectRatio
-              ratio="16/9"
-              color="primary"
-              sx={{ borderRadius: 0, color: "primary.plainColor" }}
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+                borderRadius: "9999999px",
+              }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              <IconButton
+                component="span"
+                variant="plain"
+                color="neutral"
+                size="sm"
               >
-                <InsertDriveFileRoundedIcon />
-              </Box>
-            </AspectRatio>
-          </CardOverflow>
-          <Typography level="body-xs">Added 16 May 2021</Typography>
-        </Card>
-        <Card
-          variant="solid"
-          invertedColors
-          size="sm"
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Save to Favorites
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Add to cart
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Remove
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Box>
+        <CardOverflow
           sx={{
-            border: "1px solid",
-            borderColor: "var(--joy-palette-neutral-outlinedBorder)",
-            minHeight: { xs: 250, md: "100%" },
+            borderBottom: "1px solid",
+            borderTop: "1px solid",
+            borderColor: "neutral.outlinedBorder",
           }}
         >
-          <CardContent
-            sx={{
-              mb: "auto",
-              flexGrow: 0,
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">torres-del-paine.png</Typography>
-              <Typography level="body-xs" mt={0.5}>
-                Added 5 Apr 2021
-              </Typography>
-            </Box>
-            <Dropdown>
-              <MenuButton
-                variant="plain"
-                size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                }}
-              >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
-                size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
-              >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
-          </CardContent>
-          <CardCover>
+          <AspectRatio ratio="16/9" color="primary" sx={{ borderRadius: 0 }}>
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=400&h=400&auto=format"
-              srcSet="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=400&h=400&auto=format&dpr=2 2x"
+              src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format"
+              srcSet="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format&dpr=2 2x"
             />
-          </CardCover>
-          <CardCover
-            sx={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.12))",
-            }}
-          />
-        </Card>
-        <Card
-          variant="solid"
-          size="sm"
-          invertedColors
+          </AspectRatio>
+        </CardOverflow>
+        <Typography level="body-xs">Added 27 Jun 2023</Typography>
+      </Card>
+      <Card variant="outlined" size="sm">
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Uphill Heights</Typography>
+            <Typography level="body-sm">$70 per month</Typography>
+          </Box>
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+              }}
+            >
+              <IconButton
+                component="span"
+                variant="plain"
+                color="neutral"
+                size="sm"
+              >
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Save to Favorites
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Add to cart
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Remove
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Box>
+        <CardOverflow
           sx={{
-            minHeight: { xs: 250, md: "100%" },
-            border: "1px solid",
-            borderColor: "var(--joy-palette-neutral-outlinedBorder)",
+            borderBottom: "1px solid",
+            borderTop: "1px solid",
+            borderColor: "neutral.outlinedBorder",
           }}
         >
-          <CardContent
-            sx={{
-              mb: "auto",
-              flexGrow: 0,
-              flexDirection: "row",
-              alignItems: "center",
-            }}
+          <AspectRatio
+            ratio="16/9"
+            color="primary"
+            sx={{ borderRadius: 0, color: "primary.plainColor" }}
           >
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">serra-das-araras.png</Typography>
-              <Typography level="body-xs" mt={0.5}>
-                Added 2 Mar 2021
-              </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <InsertDriveFileRoundedIcon />
             </Box>
-            <Dropdown>
-              <MenuButton
+          </AspectRatio>
+        </CardOverflow>
+        <Typography level="body-xs">Today</Typography>
+      </Card>
+      <Card
+        variant="solid"
+        invertedColors
+        size="sm"
+        sx={{
+          border: "1px solid",
+          borderColor: "var(--joy-palette-neutral-outlinedBorder)",
+          minHeight: { xs: 250, md: "100%" },
+        }}
+      >
+        <CardContent
+          sx={{
+            mb: "auto",
+            flexGrow: 0,
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Abadares Lands</Typography>
+            <Typography level="body-xs" mt={0.5}>
+              Added 5 Apr 2021
+            </Typography>
+          </Box>
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+              }}
+            >
+              <IconButton
+                component="span"
                 variant="plain"
+                color="neutral"
                 size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                }}
               >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Save to Favorites
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Add to cart
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Remove
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </CardContent>
+        <CardCover>
+          <img
+            alt=""
+            src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=400&h=400&auto=format"
+            srcSet="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=400&h=400&auto=format&dpr=2 2x"
+          />
+        </CardCover>
+        <CardCover
+          sx={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.12))",
+          }}
+        />
+      </Card>
+      <Card
+        variant="solid"
+        size="sm"
+        invertedColors
+        sx={{
+          minHeight: { xs: 250, md: "100%" },
+          border: "1px solid",
+          borderColor: "var(--joy-palette-neutral-outlinedBorder)",
+        }}
+      >
+        <CardContent
+          sx={{
+            mb: "auto",
+            flexGrow: 0,
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Lake View </Typography>
+            <Typography level="body-xs" mt={0.5}>
+              Added 2 Mar 2021
+            </Typography>
+          </Box>
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+              }}
+            >
+              <IconButton
+                component="span"
+                variant="plain"
+                color="neutral"
                 size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
               >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
-          </CardContent>
-          <CardCover>
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Rename file
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Share file
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Delete file
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </CardContent>
+        <CardCover>
+          <img
+            alt=""
+            src="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format"
+            srcSet="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format&dpr=2 2x"
+          />
+        </CardCover>
+        <CardCover
+          sx={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.12))",
+          }}
+        />
+      </Card>
+      <Card variant="outlined" size="sm">
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Kilimani apartments</Typography>
+            <Typography level="body-sm">$30000</Typography>
+          </Box>
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+                borderRadius: "9999999px",
+              }}
+            >
+              <IconButton
+                component="span"
+                variant="plain"
+                color="neutral"
+                size="sm"
+              >
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Rename file
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Share file
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Delete file
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Box>
+        <CardOverflow
+          sx={{
+            borderBottom: "1px solid",
+            borderTop: "1px solid",
+            borderColor: "neutral.outlinedBorder",
+          }}
+        >
+          <AspectRatio ratio="16/9" color="primary" sx={{ borderRadius: 0 }}>
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format"
-              srcSet="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format&dpr=2 2x"
+              src="https://images.unsplash.com/photo-1572445271230-a78b5944a659?w=400&h=400&auto=format"
+              srcSet="https://images.unsplash.com/photo-1572445271230-a78b5944a659?w=400&h=400&auto=format&dpr=2 2x"
             />
-          </CardCover>
-          <CardCover
-            sx={{
-              background:
-                "linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.12))",
-            }}
-          />
-        </Card>
-        <Card variant="outlined" size="sm">
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">translated-docs.txt</Typography>
-              <Typography level="body-sm">12.2KB</Typography>
-            </Box>
-            <Dropdown>
-              <MenuButton
-                variant="plain"
-                size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                  borderRadius: "9999999px",
-                }}
-              >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
-                size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
-              >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
+          </AspectRatio>
+        </CardOverflow>
+        <Typography level="body-xs">Added 25 May 2019</Typography>
+      </Card>
+      <Card variant="outlined" size="sm">
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography level="title-md">Ruiru West Land 50 by 100</Typography>
+            <Typography level="body-sm">$90000</Typography>
           </Box>
-          <CardOverflow
-            sx={{
-              borderBottom: "1px solid",
-              borderTop: "1px solid",
-              borderColor: "neutral.outlinedBorder",
-            }}
-          >
-            <AspectRatio ratio="16/9" color="primary" sx={{ borderRadius: 0 }}>
-              <img
-                alt=""
-                src="https://images.unsplash.com/photo-1572445271230-a78b5944a659?w=400&h=400&auto=format"
-                srcSet="https://images.unsplash.com/photo-1572445271230-a78b5944a659?w=400&h=400&auto=format&dpr=2 2x"
-              />
-            </AspectRatio>
-          </CardOverflow>
-          <Typography level="body-xs">Added 25 May 2019</Typography>
-        </Card>
-        <Card variant="outlined" size="sm">
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box sx={{ flex: 1 }}>
-              <Typography level="title-md">final-version-v3.fig</Typography>
-              <Typography level="body-sm">1.1GB</Typography>
-            </Box>
-            <Dropdown>
-              <MenuButton
-                variant="plain"
-                size="sm"
-                sx={{
-                  maxWidth: "32px",
-                  maxHeight: "32px",
-                  borderRadius: "9999999px",
-                }}
-              >
-                <IconButton
-                  component="span"
-                  variant="plain"
-                  color="neutral"
-                  size="sm"
-                >
-                  <MoreVertRoundedIcon />
-                </IconButton>
-              </MenuButton>
-              <Menu
-                placement="bottom-end"
-                size="sm"
-                sx={{
-                  zIndex: "99999",
-                  p: 1,
-                  gap: 1,
-                  "--ListItem-radius": "var(--joy-radius-sm)",
-                }}
-              >
-                <MenuItem>
-                  <EditRoundedIcon />
-                  Rename file
-                </MenuItem>
-                <MenuItem>
-                  <ShareRoundedIcon />
-                  Share file
-                </MenuItem>
-                <MenuItem sx={{ textColor: "danger.500" }}>
-                  <DeleteRoundedIcon />
-                  Delete file
-                </MenuItem>
-              </Menu>
-            </Dropdown>
-          </Box>
-          <CardOverflow
-            sx={{
-              borderBottom: "1px solid",
-              borderTop: "1px solid",
-              borderColor: "neutral.outlinedBorder",
-            }}
-          >
-            <AspectRatio
-              ratio="16/9"
-              color="primary"
-              sx={{ borderRadius: 0, color: "primary.plainColor" }}
+          <Dropdown>
+            <MenuButton
+              variant="plain"
+              size="sm"
+              sx={{
+                maxWidth: "32px",
+                maxHeight: "32px",
+                borderRadius: "9999999px",
+              }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              <IconButton
+                component="span"
+                variant="plain"
+                color="neutral"
+                size="sm"
               >
-                <InsertDriveFileRoundedIcon />
-              </Box>
-            </AspectRatio>
-          </CardOverflow>
-          <Typography level="body-xs">Added 12 May 2019</Typography>
-        </Card>
+                <MoreVertRoundedIcon />
+              </IconButton>
+            </MenuButton>
+            <Menu
+              placement="bottom-end"
+              size="sm"
+              sx={{
+                zIndex: "99999",
+                p: 1,
+                gap: 1,
+                "--ListItem-radius": "var(--joy-radius-sm)",
+              }}
+            >
+              <MenuItem>
+                <EditRoundedIcon />
+                Save to Favorites
+              </MenuItem>
+              <MenuItem>
+                <ShareRoundedIcon />
+                Add to cart
+              </MenuItem>
+              <MenuItem sx={{ textColor: "danger.500" }}>
+                <DeleteRoundedIcon />
+                Remove
+              </MenuItem>
+            </Menu>
+          </Dropdown>
+        </Box>
+        <CardOverflow
+          sx={{
+            borderBottom: "1px solid",
+            borderTop: "1px solid",
+            borderColor: "neutral.outlinedBorder",
+          }}
+        >
+          <AspectRatio
+            ratio="16/9"
+            color="primary"
+            sx={{ borderRadius: 0, color: "primary.plainColor" }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <InsertDriveFileRoundedIcon />
+            </Box>
+          </AspectRatio>
+        </CardOverflow>
+        <Typography level="body-xs">Yeterday</Typography>
+      </Card>
       {/* </Sheet> */}
     </>
   );

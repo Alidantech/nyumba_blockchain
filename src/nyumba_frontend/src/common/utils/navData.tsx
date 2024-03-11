@@ -19,53 +19,53 @@ import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 // Define navigation data for s
 export const sellerNavigationData: NavigationData = [
   {
-    route: "/dashboard/products",
+    route: "/products",
     icon: <StorefrontRoundedIcon />,
     title: "My Properties",
     currentPage: "Products",
     nested: [
       {
-        route: "/dashboard/properties/rental",
+        route: "/properties/my-rental",
         title: "Rentals",
         currentPage: "rentals",
       },
       {
-        route: "/dashboard/properties/real-estate",
+        route: "/properties/my-real-estate",
         title: "Real Estates",
         currentPage: "real-estates",
       },
       {
-        route: "/dashboard/properties/land",
+        route: "/properties/my-land",
         title: "Lands",
         currentPage: "lands",
       },
       {
-        route: "/dashboard/properties/lease-land",
+        route: "/properties/my-lease-land",
         title: "Lease Lands",
         currentPage: "lease-land",
       },
     ],
   },
   {
-    route: "/dashboard/orders",
+    route: "/orders",
     icon: <AssignmentRoundedIcon />,
     title: "Orders",
     currentPage: "Orders",
   },
   // {
-  //   route: "/dashboard/customers",
+  //   route: "/customers",
   //   icon: <GroupRoundedIcon />,
   //   title: "Customers",
   //   currentPage: "Customers",
   // },
   {
-    route: "/dashboard/chat",
+    route: "/chat",
     icon: <ContactMailRoundedIcon />,
     title: "Chat",
     currentPage: "chat",
   },
   // {
-  //   route: "/dashboard/finance",
+  //   route: "/finance",
   //   icon: <AccountBalanceRoundedIcon />,
   //   title: "Finance",
   //   currentPage: "Finance",
@@ -75,36 +75,36 @@ export const sellerNavigationData: NavigationData = [
 // Define navigation data for govtAgents
 export const govtAgentNavigationData: NavigationData = [
   // {
-  //   route: "/dashboard/cases",
+  //   route: "/cases",
   //   icon: <AssignmentRoundedIcon />,
   //   title: "Cases",
   //   currentPage: "govtAgentCases",
   // },
   {
-    route: "/dashboard/documents",
+    route: "/documents",
     icon: <ContactMailRoundedIcon />,
     title: "Documents",
     currentPage: "govtAgentDocuments",
     nested: [
       {
-        route: "/dashboard/documents/requests",
+        route: "/documents/requests",
         title: "Requests",
         currentPage: "govtAgentDocumentRequests",
       },
       {
-        route: "/dashboard/documents/accepted",
+        route: "/documents/accepted",
         title: "Accepted",
         currentPage: "govtAgentDocumentAccepted",
       },
       {
-        route: "/dashboard/documents/declined",
+        route: "/documents/declined",
         title: "Declined",
         currentPage: "govtAgentDocumentDeclined",
       },
     ],
   },
   {
-    route: "/dashboard/chat",
+    route: "/chat",
     icon: <QuestionAnswerRoundedIcon />,
     title: "Chat",
     currentPage: "chat",
@@ -115,61 +115,61 @@ export const govtAgentNavigationData: NavigationData = [
 // Define navigation data for admin
 export const adminNavigationData: NavigationData = [
   {
-    route: "/dashboard/orders",
+    route: "/orders",
     icon: <ShoppingCartRoundedIcon />,
     title: "Orders",
     currentPage: "orders",
   },
   {
-    route: "/dashboard/tasks",
+    route: "/tasks",
     icon: <AssignmentRoundedIcon />,
     title: "Tasks",
     currentPage: "tasks",
     nested: [
       {
-        route: "/dashboard/tasks/all",
+        route: "/tasks/all",
         title: "All tasks",
         currentPage: "allTasks",
       },
       {
-        route: "/dashboard/tasks/backlog",
+        route: "/tasks/backlog",
         title: "Backlog",
         currentPage: "backlog",
       },
       {
-        route: "/dashboard/tasks/in-progress",
+        route: "/tasks/in-progress",
         title: "In progress",
         currentPage: "inProgress",
       },
-      { route: "/dashboard/tasks/done", title: "Done", currentPage: "done" },
+      { route: "/tasks/done", title: "Done", currentPage: "done" },
     ],
   },
 
   {
-    route: "/dashboard/users",
+    route: "/users",
     icon: <GroupRoundedIcon />,
     title: "Users",
     currentPage: "users",
     nested: [
       {
-        route: "/dashboard/profile",
+        route: "/profile",
         title: "My Profile",
         currentPage: "profile",
       },
       {
-        route: "/dashboard/users/new",
+        route: "/users/new",
         title: "Create a new user",
         currentPage: "createUser",
       },
       {
-        route: "/dashboard/users/roles",
+        route: "/users/roles",
         title: "Roles & Permissions",
         currentPage: "rolesPermissions",
       },
     ],
   },
   {
-    route: "/dashboard/chat",
+    route: "/chat",
     icon: <QuestionAnswerRoundedIcon />,
     title: "Messages",
     currentPage: "chat",
@@ -180,47 +180,47 @@ export const adminNavigationData: NavigationData = [
 // Define navigation data for buyers
 export const buyerNavigationData: NavigationData = [
   {
-    route: "/dashboard/properties",
+    route: "/properties",
     icon: <BusinessRoundedIcon />,
     title: "Properties",
     currentPage: "properties",
     nested: [
       {
-        route: "/dashboard/properties/rental",
+        route: "/properties/rental",
         title: "Rentals",
         currentPage: "rentals",
       },
       {
-        route: "/dashboard/properties/real-estate",
+        route: "/properties/real-estate",
         title: "Real Estates",
         currentPage: "real-estates",
       },
       {
-        route: "/dashboard/properties/land",
+        route: "/properties/land",
         title: "Lands",
         currentPage: "lands",
       },
       {
-        route: "/dashboard/properties/lease-land",
+        route: "/properties/lease-land",
         title: "Lease Lands",
         currentPage: "lease-land",
       },
     ],
   },
   {
-    route: "/dashboard/cart",
+    route: "/cart",
     icon: <ShoppingCartRoundedIcon />,
     title: "Cart",
     currentPage: "cart",
   },
   {
-    route: "/dashboard/orders",
+    route: "/orders",
     icon: <AssignmentRoundedIcon />,
     title: "My Orders",
     currentPage: "Orders",
   },
   {
-    route: "/dashboard/chat",
+    route: "/chat",
     icon: <QuestionAnswerRoundedIcon />,
     title: "Chat",
     currentPage: "chat",

@@ -101,8 +101,8 @@ function AppAppBar({ mode, toggleColorMode }) {
               />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 {showDashboard && (
-                  <MenuItem onClick={() => navigate("/dashboard/home/")}>
-                    Dashboard
+                  <MenuItem onClick={() => navigate("/home/")}>
+                    Home
                   </MenuItem>
                 )}
                 <MenuItem
@@ -209,21 +209,21 @@ function AppAppBar({ mode, toggleColorMode }) {
                     />
                   </Box>
                   {showDashboard && (
-                    <MenuItem onClick={() => navigate("/dashboard/home/")}>
-                      Dashboard
+                    <MenuItem onClick={() => navigate("/home/")}>
+                      Home
                     </MenuItem>
                   )}
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
+                    Founders
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
+                  {/* <MenuItem onClick={() => scrollToSection("highlights")}>
                     Highlights
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
+                    How it Works
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection("faq")}>
                     FAQ

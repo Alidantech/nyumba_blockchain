@@ -8,31 +8,31 @@ const getAdminRoutes: () => RouteObject[][] = () => [
   {
     //@ts-ignore
 
-    path: "/dashboard/home",
+    path: "/home",
     element: <HomePage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/orders",
+    path: "/orders",
     element: <OrdersPage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/chat",
+    path: "/chat",
     element: <ChatsPage />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/profile",
+    path: "/profile",
     element: <MyProfile />,
   },
   {
     //@ts-ignore
 
-    path: "/dashboard/profile",
+    path: "/profile",
     element: <MyProfile />,
   },
 ];

@@ -34,25 +34,24 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
-
       // protected routes
       {
-        path: "/dashboard",
+        path: "/",
         element: <ProtectedRoute role="buyer" />, //@ts-ignore
         children: buyerRoutes,
       },
       {
-        path: "/dashboard",
+        path: "/",
         element: <ProtectedRoute role="seller" />, //@ts-ignore
         children: sellerRoutes,
       },
       {
-        path: "/dashboard",
+        path: "/",
         element: <ProtectedRoute role="admin" />, //@ts-ignore
         children: adminRoutes,
       },
       {
-        path: "/dashboard",
+        path: "/",
         element: <ProtectedRoute role="govt" />, //@ts-ignore
         children: govtRoutes,
       },
