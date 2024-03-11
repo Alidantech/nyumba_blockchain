@@ -1,5 +1,4 @@
-/* Your data component content */
-import { ChatProps, UserProps } from "../../types/chat";
+import { UserProps, ChatProps } from "../types/chat";
 
 export const users: UserProps[] = [
   {

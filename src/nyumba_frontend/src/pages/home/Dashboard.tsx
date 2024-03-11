@@ -21,7 +21,7 @@ export default function Dashboard({ children }: { children: React.ReactNode }) {
 
   const role = context.user?.role;
 
-  const currentPath = location.pathname.split("/").pop() || "dashboard";
+  const currentPath = location.pathname.split("/").pop() || "home";
 
   document.title = "Nyumba - " + currentPath.toLocaleLowerCase();
 

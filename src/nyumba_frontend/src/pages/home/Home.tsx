@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/joy/Box";
 import Layout from "./widgets/home/Layout";
 import TableFiles, { MobileTableFiles } from "./widgets/home/Tables";
-import MoreInfo from "./widgets/home/MoreInfo";
+import MoreInfo from "./widgets/home/Notifications";
 import RecentItems from "./widgets/home/RecentItems";
 import Sheet from "@mui/joy/Sheet";
 
@@ -18,7 +18,7 @@ export default function FilesExample() {
             p: 0,
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: 2,
+            gap: 1,
           }}
         >
           {" "}

@@ -12,7 +12,6 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import ToggleColorMode from "./ToggleColorMode";
-import { useAuth } from "../../../../context/auth.context";
 import { useNavigate } from "react-router-dom";
 
 const logoStyle = {
@@ -22,20 +21,12 @@ const logoStyle = {
 };
 
 function AppAppBar({ mode, toggleColorMode }) {
-  const authContext = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
-  const [showDashboard, setShowDashboard] = React.useState(true);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-
-  // const {user} = authContext;
-
-  // if (user != null) {
-  //   setShowDashboard(true);
-  // }
 
   const scrollToSection = (sectionId) => {
     const sectionElement = document.getElementById(sectionId);
@@ -100,11 +91,8 @@ function AppAppBar({ mode, toggleColorMode }) {
                 alt="logo of sitemark"
               />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                {showDashboard && (
-                  <MenuItem onClick={() => navigate("/home/")}>
-                    Home
-                  </MenuItem>
-                )}
+                <MenuItem onClick={() => navigate("/home/")}>Home</MenuItem>
+
                 <MenuItem
                   onClick={() => scrollToSection("features")}
                   sx={{ py: "6px", px: "12px" }}
@@ -208,11 +196,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                       toggleColorMode={toggleColorMode}
                     />
                   </Box>
-                  {showDashboard && (
-                    <MenuItem onClick={() => navigate("/home/")}>
-                      Home
-                    </MenuItem>
-                  )}
+
+                  <MenuItem onClick={() => navigate("/home/")}>Home</MenuItem>
+
                   <MenuItem onClick={() => scrollToSection("features")}>
                     Features
                   </MenuItem>

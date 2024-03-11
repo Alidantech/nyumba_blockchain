@@ -2,7 +2,6 @@ import React from "react";
 import HomePage from "../pages/home/Home";
 import OrdersPage from "../pages/cart/Orders";
 //@ts-ignore
-import CheckoutPage from "../pages/cart/Checkout.jsx";
 import Cart from "../pages/cart/Cart";
 import ChatsPage from "../pages/chat/Chat";
 import MyProfile from "../pages/auth/Profile";
@@ -12,6 +11,19 @@ import LeaseLand from "../pages/shop/LeaseLand";
 import Rental from "../pages/shop/Rental";
 import { RouteObject } from "react-router-dom";
 import Profile from "../pages/auth/Profile";
+import { useOutletContext } from "react-router-dom";
+
+const ProtectedRoute = ({ role }: { role: string }) => {
+  const context = useOutletContext() as any;
+
+  const userRole = context.user?.role;
+
+  if (userRole === role) {
+    return <>{role}</>;
+  }
+
+  return <></>;
+}
 
 // Define the function that returns RouteObject[][]
 export const getBuyerRoutes: () => RouteObject[][] = () => [
@@ -68,14 +80,10 @@ export const getBuyerRoutes: () => RouteObject[][] = () => [
     path: "/cart",
     element: <Cart />,
   },
+  
   {
     //@ts-ignore
-    path: "/cart/checkout",
-    element: <CheckoutPage />,
-  },
-  {
-    //@ts-ignore
-    path: "/cart/checkout",
+    path: "/profile",
     element: <Profile />,
   },
 ];

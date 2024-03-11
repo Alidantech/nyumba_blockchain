@@ -1,46 +1,92 @@
-import { useState } from "react";
-import { nyumba_backend } from "declarations/nyumba_backend";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
+import React, { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import PagesRouter from "./routes/public.routes";
-import AuthProvider from "./context/auth.context";
-// import getLPTheme from './theme/getLPTheme'
+import LandingPage from "./pages/home/Landing";
+import SignIn from "./pages/auth/SignIn";
+import AdminSignIn from "./pages/auth/Admin";
+
+import SignUp from "./pages/auth/SignUp";
+import CheckoutPage from "./pages/cart/Checkout";
+import ProtectedRoute from "./routes/protected.routes";
+import { buyerRoutes } from "./routes/buyer.routes";
+import { sellerRoutes } from "./routes/seller.routes";
+import { adminRoutes } from "./routes/admin.routes";
+import { govtRoutes } from "./routes/govt.routes";
+import { loadingRoutes } from "./routes/waiting.routes";
+import './common/widgets/scrollbar.css';
+import NotFoundPage from "./pages/home/_404";
+import ErrorPage from "./pages/home/error";
+import Root from "./pages/Root";
+import { useAuth } from "./context/auth.context";
 
 function App() {
-  const [greeting, setGreeting] = useState("");
+  const { role } = useAuth();
+  const [protectedRoutes, setProtectedRoutes] = useState([]);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    nyumba_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-  // const LPtheme = createTheme(getLPTheme("dark"));
+  console.log("user role:", role);
 
-  return (
-    <>
-      {/* <ThemeProvider theme={LPtheme}> */}
+  useEffect(() => {
+    console.log("new user role:", role);
+    setProtectedRoutes(generateProtectedRoutes(role));
+  }, [role]);
 
-      <AuthProvider isSignedIn={false}>
-        <RouterProvider router={PagesRouter} />
-      </AuthProvider>
+  const router = createBrowserRouter([
+    // public routes
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        {
+          path: "/",
+          index: true,
+          element: <LandingPage />,
+        },
+        {
+          path: "/admins/signin",
+          element: <AdminSignIn />,
+        },
+        {
+          path: "/signin",
+          element: <SignIn />,
+        },
+        {
+          path: "/signup",
+          element: <SignUp />,
+        },
+        // protected routes
+        {
+          path: "/",
+          element: <ProtectedRoute role={role} />,
+          children: protectedRoutes,
+        },
+        {
+          path: "/cart/checkout",
+          element: <CheckoutPage />,
+        },
+        {
+          path: "*",
+          element: <NotFoundPage />,
+        },
+      ],
+      errorElement: <ErrorPage />,
+    },
+  ]);
 
-      {/* </ThemeProvider> */}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
 
-{
-  /* <form action="#" onSubmit={handleSubmit}>
-            <label htmlFor="name">Enter your name: &nbsp;</label>
-            <input id="name" alt="Name" type="text" />
-            <button type="submit">Click Me!</button>
-          </form>
-          <section id="greeting">{greeting}</section> */
-}
+const generateProtectedRoutes = (role) => {
+  switch (role) {
+    case "buyer":
+      return buyerRoutes;
+    case "seller":
+      return sellerRoutes;
+    case "admin":
+      return adminRoutes;
+    case "govt":
+      return govtRoutes;
+    default:
+      return loadingRoutes;
+  }
+};

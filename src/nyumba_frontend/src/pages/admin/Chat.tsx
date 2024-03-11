@@ -2,10 +2,10 @@
 import * as React from "react";
 import Sheet from "@mui/joy/Sheet";
 import Box from "@mui/joy/Box";
-import MessagesPane from "./widgets/MessagesPane";
-import ChatsPane from "./widgets/ChatsPane";
+import { chats } from "../../database/admindata";
+import ChatsPane from "../chat/widgets/ChatsPane";
+import MessagesPane from "../chat/widgets/MessagesPane";
 import { ChatProps } from "../../types/chat";
-import { chats } from "./data";
 
 export default function ChatsPage() {
   const [selectedChat, setSelectedChat] = React.useState<ChatProps>(chats[0]);

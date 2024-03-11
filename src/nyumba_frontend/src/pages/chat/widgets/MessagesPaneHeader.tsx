@@ -10,7 +10,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
 import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
-import { UserProps } from "../types";
+import { UserProps } from "../../../types/chat";
 import { toggleMessagesPane } from "../../../common/utils/utils";
 
 type MessagesPaneHeaderProps = {

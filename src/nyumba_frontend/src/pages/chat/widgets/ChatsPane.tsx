@@ -9,7 +9,7 @@ import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChatListItem from "./ChatListItem";
-import { ChatProps } from "../types";
+import { ChatProps } from "../../../types/chat";
 import { toggleMessagesPane } from "../../../common/utils/utils";
 
 type ChatsPaneProps = {

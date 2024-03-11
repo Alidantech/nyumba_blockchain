@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 export type User = {
   id: number;
-  role: "buyer" | "seller" | "govt" | "admin";
+  role: string;
 };
 
 // Define a type for the context value including functions
@@ -46,14 +46,14 @@ export default function AuthProvider({
     setUser(null);
   };
 
- const contextValue: AuthContextValue = {
-   ...(user || {}), // Use an empty object if user is null to avoid spreading null
-   setAuthStatus,
-   setUserRole,
-   clearAuthStatus,
-   id: user?.id || 0, // Provide a default value for id (e.g., 0)
-   role: user?.role || "buyer", // Provide a default value for role (e.g., "buyer")
- };
+  const contextValue: AuthContextValue = {
+    ...(user || {}),
+    setAuthStatus,
+    setUserRole,
+    clearAuthStatus,
+    id: user?.id || 0,
+    role: user?.role || "none",
+  };
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

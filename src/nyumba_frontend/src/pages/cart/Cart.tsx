@@ -97,7 +97,7 @@ export default function Cart() {
                 </Typography>
               </Box>
 
-              <Link to="/dashboard/cart/checkout">
+              <Link to="/cart/checkout">
                 <Button
                   // variant="plain"
                   color="primary"

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -18,12 +19,22 @@ import Footer from "../../common/widgets/Footer";
 import getLPTheme from "../../theme/getLPTheme";
 import { Link } from "react-router-dom";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import Divider from "@mui/material/Divider";
+import Paper from '@mui/material/Paper';
 
 export default function SignIn() {
   const context = useOutletContext();
   const navigate = useNavigate();
+  const [themeMode, setThemeMode] = useState("dark");
+  useEffect(() => {
+    // Retrieve the value from local storage
+    const localThemeMode = localStorage.getItem("joy-mode");
+    if (localThemeMode) {
+      setThemeMode(localThemeMode);
+    }
+  });
 
-  const { setUser } = context;
+  const { loginUser } = context;
   const [selectedRole, setSelectedRole] = React.useState(null);
 
   const handleRoleChange = (event) => {
@@ -33,22 +44,25 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const loginSuccess = loginUser({
+      id: 1234335325,
+      username: data.get("email"),
+      role: selectedRole,
+    });
 
-    setUser({ id: 1, username: data.get("email"), role: selectedRole});
-
-
-
-    navigate("/home/", { replace: true });
+    if (loginSuccess) navigate("/home/", { replace: true });
+    else navigate("/signin/");
   };
-  const LPtheme = createTheme(getLPTheme("dark"));
+  const LPtheme = createTheme(getLPTheme(themeMode));
 
   return (
     <ThemeProvider theme={LPtheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" sx={{height:"100vh"}} maxWidth="sm">
         <CssBaseline />
+                <Paper elevation={6} sx={{ p: 4, marginTop: { xs: 4, md: 8 } }}>
+
         <Box
           sx={{
-            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -134,14 +148,16 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link to="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
+        </Paper>
       </Container>
+      <Divider/>
       <Footer />
     </ThemeProvider>
   );

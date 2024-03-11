@@ -122,8 +122,8 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
           <AspectRatio ratio="16/9" color="primary" sx={{ borderRadius: 0 }}>
             <img
               alt=""
-              src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format"
-              srcSet="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format&dpr=2 2x"
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400"
+              srcSet="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400&dpr=2 2x"
             />
           </AspectRatio>
         </CardOverflow>
@@ -190,7 +190,12 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
             color="primary"
             sx={{ borderRadius: 0, color: "primary.plainColor" }}
           >
-            <Box
+            <img
+              alt=""
+              src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format"
+              srcSet="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&h=400&auto=format&dpr=2 2x"
+            />
+            {/* <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -198,7 +203,7 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
               }}
             >
               <InsertDriveFileRoundedIcon />
-            </Box>
+            </Box> */}
           </AspectRatio>
         </CardOverflow>
         <Typography level="body-xs">Today</Typography>
@@ -355,7 +360,7 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
           <img
             alt=""
             src="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format"
-            srcSet="https://images.unsplash.com/photo-1599593752325-ffa41031056e?w=400&h=400&auto=format&dpr=2 2x"
+            srcSet="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400&dpr=2 2x"
           />
         </CardCover>
         <CardCover
@@ -494,15 +499,11 @@ const RecentItems: React.FC<RecentItemsProps> = ({}) => {
             color="primary"
             sx={{ borderRadius: 0, color: "primary.plainColor" }}
           >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <InsertDriveFileRoundedIcon />
-            </Box>
+            <img
+              alt=""
+              src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400"
+              srcSet="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400 2x"
+            />
           </AspectRatio>
         </CardOverflow>
         <Typography level="body-xs">Yeterday</Typography>

@@ -143,8 +143,8 @@ export default function Footer() {
           <Typography variant="body2" fontWeight={600}>
             Legal
           </Typography>
-          <Link color="text.secondary" href="#">
-            Terms
+          <Link color="text.secondary" href="/admins/signin">
+            Admin Signin
           </Link>
           <Link color="text.secondary" href="#">
             Privacy

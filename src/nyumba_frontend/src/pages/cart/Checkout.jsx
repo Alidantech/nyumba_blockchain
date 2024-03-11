@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useEffect, useState} from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -13,12 +13,9 @@ import Typography from "@mui/material/Typography";
 import AddressForm from "./widgets/checkout/AddressForm";
 import PaymentForm from "./widgets/checkout/PaymentForm";
 import Review from "./widgets/checkout/Review";
-import Copyright from "../../common/widgets/FooterCopyright";
 import getLPTheme from "../../theme/getLPTheme";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-
-
-
+import { Link } from "react-router-dom";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
@@ -37,9 +34,39 @@ function getStepContent(step) {
 
 export default function CheckoutPage() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [themeMode, setThemeMode] = useState("dark");
 
-  const LPtheme = createTheme(getLPTheme("dark"));
+   useEffect(() => {
+     // Your other useEffect code...
 
+     // Dynamically set document title based on activeStep
+     switch (activeStep) {
+       case 0:
+         document.title = "Nyumba | Checkout - Shipping Address";
+         break;
+       case 1:
+         document.title = "Nyumba | Checkout - Payment Details";
+         break;
+       case 2:
+         document.title = "Nyumba | Checkout - Review Your Order";
+         break;
+       default:
+         document.title = "Nyumba | Checkout";
+         break;
+     }
+   }, [activeStep]);
+
+  useEffect(() => {
+    // Retrieve the value from local storage
+    const storedValue = localStorage.getItem("joy-mode");
+
+    // If the value exists, set the initial state of themeMode
+    if (storedValue) {
+      setThemeMode(storedValue);
+    }
+  }, []);
+
+  const LPtheme = createTheme(getLPTheme(themeMode));
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -50,78 +77,60 @@ export default function CheckoutPage() {
   };
 
   return (
-    <ThemeProvider
-      theme={
-        // showCustomTheme ? LPtheme :
-        // defaultTheme
-        LPtheme
-      }
-    >
-        <CssBaseline />
-        {/* <AppBar
-          position="absolute"
-          color="default"
-          elevation={0}
-          sx={{
-            position: "relative",
-            borderBottom: (t) => `1px solid ${t.palette.divider}`,
-          }}
+    <ThemeProvider theme={LPtheme}>
+      <CssBaseline />
+      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+        <Paper
+          variant="outlined"
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
         >
-          <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
-              Nyumba ICP
-            </Typography>
-          </Toolbar>
-        </AppBar> */}
-        <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-          <Paper
-            variant="outlined"
-            sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
-          >
-            <Typography component="h1" variant="h4" align="center">
-              Checkout
-            </Typography>
-            <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-              {steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              ))}
-            </Stepper>
-            {activeStep === steps.length ? (
-              <React.Fragment>
-                <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
-                </Typography>
-                <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order
-                  confirmation, and will send you an update when your order has
-                  shipped.
-                </Typography>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
-                      Back
-                    </Button>
-                  )}
-
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 3, ml: 1 }}
-                  >
-                    {activeStep === steps.length - 1 ? "Place order" : "Next"}
+          <Typography component="h1" variant="h4" align="center">
+            Checkout
+          </Typography>
+          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+          {activeStep === steps.length ? (
+            <React.Fragment>
+              <Typography variant="h5" gutterBottom>
+                Thank you for your order.
+              </Typography>
+              <Typography variant="subtitle1">
+                Your order number is #2001539. We have emailed your order
+                confirmation, and will send you an update when your order has
+                shipped.
+              </Typography>
+              <Link to="/orders">
+                <Button sx={{mt:2}} fullWidth variant="contained">View Orders</Button>
+              </Link>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {getStepContent(activeStep)}
+              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                {activeStep !== 0 && (
+                  <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                    Back
                   </Button>
-                </Box>
-              </React.Fragment>
-            )}
-          </Paper>
-          <Copyright />
-        </Container>
+                )}
+
+                <Button
+                  variant="contained"
+                  onClick={handleNext}
+                  sx={{ mt: 3, ml: 1 }}
+                >
+                  {activeStep === steps.length - 1 ? "Place order" : "Next"}
+                </Button>
+              </Box>
+            </React.Fragment>
+          )}
+        </Paper>
+        {/* <Copyright /> */}
+      </Container>
     </ThemeProvider>
   );
 }

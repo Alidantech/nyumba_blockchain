@@ -5,7 +5,7 @@ export default function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {"Copyright © "}
-      <Link href="/">Nyumba Blockchain&nbsp;</Link>
+      <Link to="/">Nyumba Blockchain&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );

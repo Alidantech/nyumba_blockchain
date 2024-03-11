@@ -13,7 +13,7 @@ function Root(props: BoxProps) {
           gridTemplateColumns: {
             xs: "1fr",
             sm: "auto",
-            md: "minmax(300px, 500px) auto",
+            md: "auto",
           },
           width:"100%",
           gridTemplateRows: "35px 1fr",
@@ -68,7 +68,7 @@ function SideNav(props: BoxProps) {
           borderColor: "divider",
           display: {
             xs: "none",
-            sm: "initial",
+            sm: "none",
           },
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
@@ -84,14 +84,13 @@ function SidePane(props: BoxProps) {
       {...props}
       sx={[
         {
-
           bgcolor: "background.surface",
           height: "100vh",
           borderRight: "1px solid",
           borderColor: "divider",
           display: {
             xs: "none",
-            md: "grid",
+            md: "none",
           },
           gridTemplateRows:"auto 90vh"
         },
