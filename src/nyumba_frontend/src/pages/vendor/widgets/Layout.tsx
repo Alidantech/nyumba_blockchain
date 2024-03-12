@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box, { BoxProps } from "@mui/joy/Box";
 import Sheet from "@mui/joy/Sheet";
+import AddIcon from "@mui/icons-material/Add";
 
 function Root(props: BoxProps) {
   return (
@@ -15,7 +16,7 @@ function Root(props: BoxProps) {
             sm: "auto",
             md: "auto",
           },
-          width:"100%",
+          width: "100%",
           gridTemplateRows: "35px 1fr",
           minHeight: "100vh",
         },
@@ -92,7 +93,7 @@ function SidePane(props: BoxProps) {
             xs: "none",
             md: "none",
           },
-          gridTemplateRows:"auto 90vh"
+          gridTemplateRows: "auto 90vh",
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
@@ -149,6 +150,40 @@ function SideDrawer(
   );
 }
 
+function FloatingActionButton() {
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        bottom: 16,
+        right: 16,
+        zIndex: 1200,
+      }}
+    >
+      <Sheet
+        sx={{
+          bgcolor: "background.primary",
+          boxShadow: "lg",
+          p: 2,
+          borderRadius: "50%",
+          display: "flex",
+          flexDirection: "column", // Add this line
+          alignItems: "center",
+          justifyContent: "center",
+          width: { xs: 40, md: 64 },
+          height: { xs: 40, md: 64 },
+          cursor: "pointer",
+        }}
+      >
+        <AddIcon
+          sx={{ fontSize: "30px", fontWeight: "bold" }}
+          color="primary"
+        />
+      </Sheet>
+    </Box>
+  );
+}
+
 export default {
   Root,
   Header,
@@ -156,4 +191,5 @@ export default {
   SidePane,
   SideDrawer,
   Main,
+  FloatingActionButton,
 };

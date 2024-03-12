@@ -149,6 +149,29 @@ export const adminNavigationData: NavigationData = [
     ],
   },
   {
+    route: "/documents",
+    icon: <ContactMailRoundedIcon />,
+    title: "Documents",
+    currentPage: "govtAgentDocuments",
+    nested: [
+      {
+        route: "/documents/requests",
+        title: "Requests",
+        currentPage: "govtAgentDocumentRequests",
+      },
+      {
+        route: "/documents/accepted",
+        title: "Accepted",
+        currentPage: "govtAgentDocumentAccepted",
+      },
+      {
+        route: "/documents/declined",
+        title: "Declined",
+        currentPage: "govtAgentDocumentDeclined",
+      },
+    ],
+  },
+  {
     route: "/users",
     icon: <GroupRoundedIcon />,
     title: "Users",
@@ -182,6 +205,33 @@ export const adminNavigationData: NavigationData = [
     title: "Messages",
     currentPage: "chat",
     badge: 4,
+    nested: [
+      {
+        route: "/properties/rental",
+        title: "Rentals",
+        currentPage: "rentals",
+      },
+      {
+        route: "/properties/real-estate",
+        title: "Real Estates",
+        currentPage: "real-estates",
+      },
+      {
+        route: "/properties/land",
+        title: "Lands",
+        currentPage: "lands",
+      },
+      {
+        route: "/properties/lease-land",
+        title: "Lease Lands",
+        currentPage: "lease-land",
+      },
+      {
+        route: "/properties/lease-land",
+        title: "Officials",
+        currentPage: "lease-land",
+      },
+    ],
   },
 ];
 

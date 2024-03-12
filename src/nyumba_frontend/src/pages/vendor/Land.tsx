@@ -53,6 +53,26 @@ export default function TeamExample() {
       skills: ["2 bedrooms", "Balcony"],
     },
     {
+      name: "Milimani Block",
+      position: "$300 per month",
+      avatar2x: "https://picsum.photos/267",
+      companyData: [
+        {
+          role: "Water",
+          name: "per month",
+          logo: "https://picsum.photos/229",
+          years: "$10",
+        },
+        {
+          role: "Electricity",
+          name: "Per week",
+          logo: "https://picsum.photos/220",
+          years: "$30",
+        },
+      ],
+      skills: ["2 bedrooms", "Balcony"],
+    },
+    {
       name: "Upper Hill Flats",
       position: "$250 per month",
       avatar2x: "https://picsum.photos/200",
@@ -116,6 +136,7 @@ export default function TeamExample() {
 
   return (
     <>
+      <Layout.FloatingActionButton></Layout.FloatingActionButton>
       <Layout.Root
         sx={{
           height: "100vh",
