@@ -1,0 +1,15 @@
+type UserInfo = {
+  username: text;
+};
+
+type Message = {
+  sender: text;
+  content: text;
+};
+
+type ChatApp = {
+  registerUser: (username: text) -> null;
+  sendMessage: (content: text) -> null;
+  getMessages: () -> vec Message;
+  getRegisteredUsernames: () -> vec text;
+};

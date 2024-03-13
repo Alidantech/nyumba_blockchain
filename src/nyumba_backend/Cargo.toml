@@ -9,9 +9,6 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-reqwest = "0.11.0"
+ic-cdk = "0.13.1"
+# Only necessary if you want to define Candid data types
 candid = "0.10" 
-ic-cdk = "0.12"
-ic-cdk-timers = "0.6" 
-# pocket-ic = "2.2.0"
-ic-cdk-macros = "0.8"

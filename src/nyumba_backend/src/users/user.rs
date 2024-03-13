@@ -1,39 +1,48 @@
-// Define a trait named 'User'
-trait User {
-    fn get_username(&self) -> &str;
-    fn get_role(&self) -> &str;
+// Define the User trait with common methods for all users
+pub trait User {
+    fn get_info(&self) -> String;
     fn login(&self);
     fn logout(&self);
-    fn get_bio_data(&self) -> &str;
+    fn update_info(&mut self, new_email: &str, new_password: &str, new_dob: &str);
+    fn delete_account(&mut self);
 }
 
-// Define a struct named 'CommonUser' implementing the 'User' trait
-struct CommonUser {
-    username: String,
-    role: String,
-    bio_data: String,
+// Enum to represent the type of user (normal user or super user)
+#[derive(Debug)]
+pub enum UserType {
+    NormalUser,
+    SuperUser,
 }
 
-// Implement the 'User' trait for 'CommonUser'
-impl User for CommonUser {
-    fn get_username(&self) -> &str {
-        &self.username
-    }
+// Struct to hold user data common to all users
+#[derive(Debug)]
+pub struct UserData {
+    pub name: String,
+    pub email: String,
+    pub password: String,
+    pub dob: String,
+    pub user_type: UserType,
+}
 
-    fn get_role(&self) -> &str {
-        &self.role
-    }
+// Enum to represent the role of normal users (buyer or seller)
+#[derive(Debug)]
+pub enum NormalUserRole {
+    Buyer,
+    Seller,
+}
 
-    fn login(&self) {
-        println!("{} is now logged in.", self.username);
-    }
+// Enum to represent the role of super users (admin or official)
+#[derive(Debug)]
+pub enum SuperUserRole {
+    Admin,
+    Official,
+}
 
-    fn logout(&self) {
-        println!("{} has logged out.", self.username);
-    }
-
-    fn get_bio_data(&self) -> &str {
-        &self.bio_data
-    }
+// Enum to represent gender
+#[derive(Debug)]
+pub enum Gender {
+    Male,
+    Female,
+    Other,
 }
 
