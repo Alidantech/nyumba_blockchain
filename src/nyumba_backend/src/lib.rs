@@ -13,18 +13,10 @@ mod models {
     pub mod user_models;
 }
 
-// Module containing traits defining functions related to canister actions and behavior.
-mod functions {
-    pub mod file_traits;
-    pub mod property_traits;
-    pub mod shop_traits;
-    pub mod user_traits;
-}
-
 // main canister code is contained in this file
 // Module containing contracts specifying the expected behavior of the canister functionalities.
 mod contracts {
-    mod files {
+    pub(crate) mod files {
         pub mod media;
         pub mod verification;
     }
@@ -34,20 +26,18 @@ mod contracts {
         pub mod real_estate;
         pub mod rental;
     }
-
     mod shop {
         pub mod cart;
         pub mod order;
     }
-
     mod users {
         pub mod admin;
         pub mod buyer;
         pub mod official;
         pub mod seller;
+        pub mod user;
     }
 }
-
 // Module containing test cases for canister-related functionalities.
 mod test {
     pub mod file_test;
@@ -56,4 +46,4 @@ mod test {
     pub mod user_test;
 }
 
-
+pub use contracts::files::media::{get_info, create_media};

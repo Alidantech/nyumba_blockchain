@@ -737,6 +737,7 @@ dependencies = [
  "candid 0.10.5",
  "ic-cdk 0.13.1",
  "ic-cdk-timers",
+ "lazy_static",
  "serde",
  "serde_derive",
 ]

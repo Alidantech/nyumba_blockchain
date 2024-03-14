@@ -1,15 +1,16 @@
 use candid::CandidType;
+use serde::{Deserialize, Serialize};
 use crate::enums::file_enums::MediaType;
 
 // media file data
-#[derive(CandidType, Debug)]
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct MediaInfo {
     pub media_type: MediaType,
     pub url: String,
 }
 
 // verification document data
-#[derive(CandidType, Debug)]
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct VerificationDocument {
     pub id: String,
     pub date_updated: String,

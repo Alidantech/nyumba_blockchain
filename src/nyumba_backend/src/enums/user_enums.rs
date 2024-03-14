@@ -1,6 +1,9 @@
+use candid::CandidType;
+use serde::{Deserialize, Serialize};
+
 // Define user types
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum UserType {
     NormalUser, 
     SuperUser,  
@@ -8,7 +11,7 @@ pub enum UserType {
 
 // Define gender options
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum Gender {
     Male,
     Female,
@@ -17,7 +20,7 @@ pub enum Gender {
 
 // Define roles for normal users
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum NormalUserRole {
     Buyer,  
     Seller, 
@@ -25,7 +28,7 @@ pub enum NormalUserRole {
 
 // Define roles for super users
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum SuperUserRole {
     Admin,   
     Official,
@@ -33,7 +36,7 @@ pub enum SuperUserRole {
 
 // Define work roles for admin users
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum AdminWorkRole {
     CEO,     
     Manager, 
@@ -42,7 +45,7 @@ pub enum AdminWorkRole {
 
 // Define work roles for official users
 #[allow(dead_code)]
-#[derive(Debug)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum OfficialWorkRole {
     NCA,
     LandOffices,

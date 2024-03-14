@@ -3,6 +3,12 @@ use serde::{Serialize, Deserialize};
 use std::{cell::RefCell, collections::HashMap};
 use std::cell::Cell;
 
+// Thread and map for storing media
+thread_local! {
+    static TASKS: RefCell<HashMap<u64, Task>> = RefCell::default();
+    static NEXT_ID: Cell<u64> = Cell::new(0);
+}
+
 
 // Task struct
 #[derive(CandidType, Serialize, Deserialize, Clone, Debug)]

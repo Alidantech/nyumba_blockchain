@@ -1,4 +1,5 @@
 use candid::CandidType;
+use serde::{Deserialize, Serialize};
 
 use crate::models::file_models::{MediaInfo, VerificationDocument};
 
@@ -12,7 +13,7 @@ pub enum FileType {
 
 // Enum to represent different media types
 #[allow(dead_code)]
-#[derive(Debug, CandidType)]
+#[derive(Debug, CandidType, Clone, Serialize, Deserialize)]
 pub enum MediaType {
     Image,
     Video,
@@ -20,4 +21,5 @@ pub enum MediaType {
     Word,
     Other(String),
 }
+
 
