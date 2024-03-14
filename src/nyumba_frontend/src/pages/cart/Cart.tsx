@@ -70,7 +70,7 @@ export default function Cart() {
                 <WriteEmail open={open} onClose={() => setOpen(false)} />
               </FocusTrap>
             </Box>
-            <Mails />
+            
             <Stack
               id="tab-bar"
               direction="row"
@@ -81,8 +81,9 @@ export default function Cart() {
                 // display: { xs: "flex", sm: "none" },
                 zIndex: "999",
                 bottom: 0,
-                position: "fixed",
-                width: { xs: "100vw", sm: "85vw" },
+                top:"100%",
+                position: "sticky",
+                width: "100%",
                 py: 2,
                 backgroundColor: "background.body",
                 borderTop: "1px solid",
@@ -93,7 +94,7 @@ export default function Cart() {
                 <Typography level="title-lg">TOTAL:</Typography>
                 <Typography fontSize="1.5em" color="primary">
                   {" "}
-                  $20000
+                  $1350000
                 </Typography>
               </Box>
 
@@ -113,7 +114,8 @@ export default function Cart() {
           </Box>
         </Layout.SidePane>
         <Layout.Main>
-          <EmailContent />
+          {/* <EmailContent /> */}
+          <Mails />
         </Layout.Main>
       </Layout.Root>
     </>

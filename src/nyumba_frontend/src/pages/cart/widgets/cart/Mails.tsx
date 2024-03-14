@@ -13,32 +13,32 @@ import {Link} from 'react-router-dom';
 
 const data = [
   {
-    name: "New York",
-    avatar: "https://i.pravatar.cc/40?img=3",
-    avatar2x: "https://i.pravatar.cc/80?img=3",
-    date: "$300",
-    title: "Details for our Yosemite Park hike",
-    body: "Hello, my friend! So, it seems that we are getting there…",
-    color: "warning.400",
+    name: "Lakefront Serenity",
+    avatar: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400",
+    avatar2x: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400",
+    date: "$450,000",
+    title: "Cozy Lake House",
+    body: "Nestled on the shores of Crystal Lake, this cozy 3-bedroom house offers stunning water views, private dock access, and a sprawling deck for entertaining. Perfect for those seeking tranquility and outdoor adventure.",
+    color: "warning.400"
   },
   {
-    name: "Pete Sand",
-    avatar: "https://i.pravatar.cc/40?img=4",
-    avatar2x: "https://i.pravatar.cc/80?img=4",
-    date: "$300",
-    title: "Tickets for our upcoming trip",
-    body: "Good day, mate! It seems that our tickets just arrived…",
-    color: "success.400",
+    name: "Sunny Meadows",
+    avatar: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400",
+    avatar2x: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=400",
+    date: "$375,000",
+    title: "Modern Gazebo",
+    body: "Discover the charm of country living in our 4-bedroom farmhouse at Sunny Meadows. Featuring a spacious open-plan kitchen, wrap-around porch, and over two acres of lush gardens.",
+    color: "success.400"
   },
   {
-    name: "Kate Gates",
-    avatar: "https://i.pravatar.cc/40?img=5",
-    avatar2x: "https://i.pravatar.cc/80?img=5",
-    date: "$300",
-    title: "Brunch this Saturday?",
-    body: "Hey! I'll be around the city this weekend, how about a…",
-    color: "primary.500",
-  },
+    name: "Downtown Loft",
+    avatar: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400",
+    avatar2x: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400",
+    date: "$525,000",
+    title: "Urban Chic Apartment",
+    body: "Experience the heart of the city in our luxurious 2-bedroom loft. Boasting floor-to-ceiling windows, a gourmet kitchen, and access to premium amenities. Ideal for those who love vibrant city life.",
+    color: "primary.500"
+  }
 ];
 
 export default function EmailList() {
