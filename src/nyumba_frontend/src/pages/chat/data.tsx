@@ -3,47 +3,29 @@ import { ChatProps, UserProps } from "../../types/chat";
 
 export const users: UserProps[] = [
   {
-    name: "Steve E.",
-    username: "Land",
+    name: "Land",
+    username: "Steve Ekwe",
     avatar: "/static/images/avatar/2.jpg",
     online: true,
   },
   {
-    name: "Katherine Moss",
-    username: "Land Lease",
+    name: "Land Lease",
+    username: "Katherine Maina",
     avatar: "/static/images/avatar/3.jpg",
     online: true,
   },
   {
-    name: "Phoenix Baker",
-    username: "Real Estate",
+    name: "Real Estate",
+    username: "William Nanini",
     avatar: "/static/images/avatar/1.jpg",
     online: true,
   },
   {
-    name: "Eleanor Pena",
-    username: "Rentals",
+    name: "Rentals",
+    username: "Eleanor Amima",
     avatar: "/static/images/avatar/4.jpg",
     online: true,
   },
-  // {
-  //   name: "Kenny Peterson",
-  //   username: "@kenny",
-  //   avatar: "/static/images/avatar/5.jpg",
-  //   online: true,
-  // },
-  // {
-  //   name: "Al Sanders",
-  //   username: "@al",
-  //   avatar: "/static/images/avatar/6.jpg",
-  //   online: true,
-  // },
-  // {
-  //   name: "Melissa Van Der Berg",
-  //   username: "@melissa",
-  //   avatar: "/static/images/avatar/7.jpg",
-  //   online: false,
-  // },
 ];
 
 export const chats: ChatProps[] = [
@@ -53,85 +35,72 @@ export const chats: ChatProps[] = [
     messages: [
       {
         id: "1",
-        content: "Hi Olivia, I am currently working on the project.",
-        timestamp: "Wednesday 9:00am",
+        content: "Good morning! I heard you're in the market for some land. How can I assist you today?",
+        timestamp: "Wednesday 9:10am",
         sender: users[0],
       },
       {
         id: "2",
-        content: "That sounds great, Mabel! Keep up the good work.",
-        timestamp: "Wednesday 9:10am",
-        sender: "You",
+        content: "Hi there, yes, I'm looking for a nice piece of land where I can build my dream home. I want something peaceful and preferably with a good view. What do you have available?",
+        timestamp: "Wednesday 9:15am",
+        sender: "You"
       },
       {
         id: "3",
         timestamp: "Wednesday 11:30am",
         sender: users[0],
-        content: "I will send the draft by end of the day.",
+        content: "I have just the thing. We recently listed a 5-acre plot in a serene location. It's surrounded by nature, offers stunning views of the mountains, and it's only a 10-minute drive from the city center. It might be perfect for what you're envisioning."
       },
       {
         id: "4",
         timestamp: "Wednesday 2:00pm",
         sender: "You",
-        content: "Sure, I will be waiting for it.",
+        content: "That sounds interesting! Can you tell me more about the land? What's the terrain like? Are there any utilities already set up?"
       },
       {
         id: "5",
         timestamp: "Wednesday 4:30pm",
         sender: users[0],
-        content: "Just a heads up, I am about to send the draft.",
+        content: "Certainly. The terrain is mostly flat, which is great for construction, and it includes a small wooded area that adds to its charm. As for utilities, water and electricity are already available at the property line. You would need to set up a septic system, though."
       },
       {
         id: "6",
-        content:
-          "Thanks Olivia! Almost there. I'll work on making those changes you suggested and will shoot it over.",
         timestamp: "Thursday 10:16am",
-        sender: users[0],
+        sender: "You",
+        content: "Sounds good. What about the price? And are there any restrictions on what can be built?"
       },
       {
         id: "7",
-        content:
-          "Hey Olivia, I've finished with the requirements doc! I made some notes in the gdoc as well for Phoenix to look over.",
-        timestamp: "Thursday 11:40am",
+        timestamp: "Thursday 10:45am",
         sender: users[0],
-      },
-      {
-        id: "3",
-        timestamp: "Thursday 11:40am",
-        sender: users[0],
-        content: "Tech requirements.pdf",
-        attachment: {
-          fileName: "Tech requirements.pdf",
-          type: "pdf",
-          size: "1.2 MB",
-        },
+        content: "The asking price is $150,000. It’s a competitive price for the area, considering the size and the amenities available. There are some building restrictions to preserve the area’s natural beauty and maintain the value of the properties. For instance, the house must be at least 2,000 square feet, and the design needs to be approved by the local homeowners’ association."
       },
       {
         id: "8",
-        timestamp: "Thursday 11:41am",
+        timestamp: "Thursday 11:00am",
         sender: "You",
-        content: "Awesome! Thanks. I'll look at this today.",
+        content: "I see. Could I possibly visit the site this weekend to get a better feel of the place?"
       },
       {
         id: "9",
-        timestamp: "Thursday 11:44am",
+        timestamp: "Thursday 11:30am",
         sender: users[0],
-        content: "No rush though — we still have to wait for Lana's designs.",
+        content: "Absolutely, I’d be happy to show you the property. How does Saturday morning sound to you?"
       },
       {
         id: "10",
-        timestamp: "Today 2:20pm",
-        sender: users[0],
-        content:
-          "Hey Olivia, can you please review the latest design when you can?",
+        timestamp: "Thursday 11:45am",
+        sender: "You",
+        content: "Saturday morning works great for me. Should I meet you at your office, or directly at the property?"
       },
       {
         id: "11",
-        timestamp: "Just now",
-        sender: "You",
-        content: "Sure thing, I'll have a look today. They're looking great!",
-      },
-    ],
+        timestamp: "Thursday 12:00pm",
+        sender: users[0],
+        content: "Let’s meet at the property. I’ll send you the location details and my contact number, so you can reach me if you need any assistance finding the place."
+      }
+    ]
+    
   },
   {
     id: "2",
@@ -139,137 +108,131 @@ export const chats: ChatProps[] = [
     messages: [
       {
         id: "1",
-        content: "Hi Olivia, I am thinking about taking a vacation.",
+        content: "Hi there! I'm interested in leasing some land for organic farming. Do you have any available plots?",
         timestamp: "Wednesday 9:00am",
-        sender: users[1],
+        sender: "You"
       },
       {
         id: "2",
-        content:
-          "That sounds like a great idea, Katherine! Any idea where you want to go?",
+        content: "Hello! Yes, we have several plots that might be suitable for organic farming. What size are you looking for?",
         timestamp: "Wednesday 9:05am",
-        sender: "You",
+        sender: users[1]
       },
       {
         id: "3",
-        content: "I am considering a trip to the beach.",
+        content: "I'm looking for something around 20 to 30 acres. It's important that the land has not been treated with chemicals in the recent past.",
         timestamp: "Wednesday 9:30am",
-        sender: users[1],
+        sender: "You"
       },
       {
         id: "4",
-        content: "The beach sounds perfect this time of year!",
-        timestamp: "Wednesday 9:35am",
-        sender: "You",
+        content: "We have a 25-acre plot that has been free from chemical treatments for the last 5 years. It could be perfect for your needs. Would you like more information on this?",
+        timestamp: "Wednesday 9:45am",
+        sender: users[1]
       },
       {
         id: "5",
-        content: "Yes, I agree. It will be a much-needed break.",
+        content: "Yes, please. Can you send the details on the lease terms and pricing?",
         timestamp: "Wednesday 10:00am",
-        sender: users[1],
+        sender: "You"
       },
       {
         id: "6",
-        content: "Make sure to take lots of pictures!",
-        timestamp: "Wednesday 10:05am",
-        sender: "You",
-      },
-    ],
+        content: "Of course. The lease terms are quite flexible, with options starting from 3 years. Pricing is competitive, designed to encourage sustainable farming practices. I'll send you a detailed proposal by the end of the day.",
+        timestamp: "Wednesday 10:20am",
+        sender: users[1]
+      }
+    ]
   },
   {
-    id: "3",
-    sender: users[2],
-    messages: [
-      {
-        id: "1",
-        content: "Hey!",
-        timestamp: "5 mins ago",
-        sender: users[2],
-        unread: true,
-      },
-    ],
-  },
-  {
-    id: "4",
-    sender: users[3],
-    messages: [
-      {
-        id: "1",
-        content:
-          "Hey Olivia, I was thinking about doing some home improvement work.",
-        timestamp: "Wednesday 9:00am",
-        sender: users[3],
-      },
-      {
-        id: "2",
-        content:
-          "That sounds interesting! What kind of improvements are you considering?",
-        timestamp: "Wednesday 9:05am",
-        sender: "You",
-      },
-      {
-        id: "3",
-        content:
-          "I am planning to repaint the walls and replace the old furniture.",
-        timestamp: "Wednesday 9:15am",
-        sender: users[3],
-      },
-      {
-        id: "4",
-        content:
-          "That will definitely give your house a fresh look. Do you need help with anything?",
-        timestamp: "Wednesday 9:20am",
-        sender: "You",
-      },
-      {
-        id: "5",
-        content:
-          "I might need some help with picking the right paint colors. Can we discuss this over the weekend?",
-        timestamp: "Wednesday 9:30am",
-        sender: users[3],
-      },
-    ],
-  },
+  id: "3",
+  sender: users[2],
+  messages: [
+    {
+      id: "1",
+      content: "Hello! I saw your inquiry about available properties in the downtown area. Are you looking for residential or commercial spaces?",
+      timestamp: "Monday 8:30am",
+      sender: users[2]
+    },
+    {
+      id: "2",
+      content: "Hi, thanks for reaching out. I'm interested in residential properties, preferably a single-family home with a nice yard.",
+      timestamp: "Monday 8:45am",
+      sender: "You"
+    },
+    {
+      id: "3",
+      content: "Great choice! We have a newly listed four-bedroom home with a spacious backyard. It's located in a quiet neighborhood with easy access to downtown. Would you like to schedule a viewing?",
+      timestamp: "Monday 9:00am",
+      sender: users[2]
+    },
+    {
+      id: "4",
+      content: "That sounds exactly like what I'm looking for. Can you send me the details and the asking price?",
+      timestamp: "Monday 9:15am",
+      sender: "You"
+    },
+    {
+      id: "5",
+      content: "Absolutely. The asking price is $350,000. The house features modern amenities, a two-car garage, and a beautifully landscaped yard. I'll send over the full listing details and photos. How does this Saturday sound for a viewing?",
+      timestamp: "Monday 9:30am",
+      sender: users[2]
+    },
+    {
+      id: "6",
+      content: "Saturday works for me. Please send me the address and a time. Looking forward to it, thanks!",
+      timestamp: "Monday 9:45am",
+      sender: "You"
+    }
+  ]
+},
+{
+  id: "4",
+  sender: users[3],
+  messages: [
+    {
+      id: "1",
+      content: "Hello! I'm currently looking for a rental property in the city center, preferably a two-bedroom apartment with modern amenities. Do you have anything available?",
+      timestamp: "Tuesday 10:00am",
+      sender: "You"
+    },
+    {
+      id: "2",
+      content: "Good morning! Yes, we have several two-bedroom apartments that fit your criteria. They come with fully equipped kitchens, central air, and access to a fitness center. Are you interested in any specific features?",
+      timestamp: "Tuesday 10:15am",
+      sender: users[3]
+    },
+    {
+      id: "3",
+      content: "That sounds great. I'm particularly interested in a place with a good view and a balcony. Do any of the apartments offer that?",
+      timestamp: "Tuesday 10:30am",
+      sender: "You"
+    },
+    {
+      id: "4",
+      content: "Indeed, we do have a couple of units on higher floors with excellent city views and spacious balconies. One of them might be just what you're looking for. Would you like to arrange a viewing?",
+      timestamp: "Tuesday 10:45am",
+      sender: users[3]
+    },
+    {
+      id: "5",
+      content: "Yes, I would love to. Can we schedule a viewing for this weekend?",
+      timestamp: "Tuesday 11:00am",
+      sender: "You"
+    },
+    {
+      id: "6",
+      content: "Certainly! How does Saturday afternoon sound? I can show you both apartments back-to-back.",
+      timestamp: "Tuesday 11:15am",
+      sender: users[3]
+    },
+    {
+      id: "7",
+      content: "Saturday afternoon works perfectly for me. Please send me the details and the exact time.",
+      timestamp: "Tuesday 11:30am",
+      sender: "You"
+    }
+  ]
+}
 
-  // {
-  //   id: "5",
-  //   sender: users[4],
-  //   messages: [
-  //     {
-  //       id: "1",
-  //       content: "Sup",
-  //       timestamp: "5 mins ago",
-  //       sender: users[4],
-  //       unread: true,
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: "6",
-  //   sender: users[5],
-  //   messages: [
-  //     {
-  //       id: "1",
-  //       content: "Heyo",
-  //       timestamp: "5 mins ago",
-  //       sender: "You",
-  //       unread: true,
-  //     },
-  //   ],
-  // },
-
-  // {
-  //   id: "7",
-  //   sender: users[6],
-  //   messages: [
-  //     {
-  //       id: "1",
-  //       content:
-  //         "Hey Olivia, I've finished with the requirements doc! I made some notes in the gdoc as well for Phoenix to look over.",
-  //       timestamp: "5 mins ago",
-  //       sender: users[6],
-  //       unread: true,
-  //     },
-  //   ],
-  // },
 ];

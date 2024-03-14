@@ -5,13 +5,37 @@ import TableFiles, { MobileTableFiles } from "./widgets/home/Tables";
 import MoreInfo from "./widgets/home/Notifications";
 import RecentItems from "./widgets/home/RecentItems";
 import Sheet from "@mui/joy/Sheet";
+import Typography from "@mui/joy/Typography";
+import { Breadcrumbs, Button } from "@mui/joy";
+import { Link, NavLink } from "react-router-dom";
 
 export default function FilesExample() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   return (
     <Layout.Root>
-      <Box sx={{ m: 0, p: 0, w: 0, h: 0 }}></Box>
+      <Box
+        sx={{
+          mb: 1,
+          gap: 1,
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: { xs: "start", sm: "center" },
+          flexWrap: "wrap",
+          p: 2,
+          display: "flex" ,
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography level="h2" component="h1">
+          Welcome
+        </Typography>
+        <Button
+          color="primary"
+        >
+          Balance: 10 ICP
+        </Button>
+      </Box>
       <Layout.Main>
+        
         <Box
           sx={{
             m: 0,
@@ -22,7 +46,7 @@ export default function FilesExample() {
           }}
         >
           {" "}
-          <Sheet
+          {/* <Sheet
             variant="outlined"
             sx={{
               borderRadius: "sm",
@@ -31,13 +55,13 @@ export default function FilesExample() {
             }}
           >
             <TableFiles />
-          </Sheet>
-          <MobileTableFiles />
+          </Sheet> */}
+          {/* <MobileTableFiles /> */}
           {/* <Stack>Recently Viewed</Stack> */}
           <RecentItems />
         </Box>
       </Layout.Main>
-      <MoreInfo />
+      {/* <MoreInfo /> */}
     </Layout.Root>
   );
 }
