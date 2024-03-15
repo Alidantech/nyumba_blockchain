@@ -221,6 +221,7 @@ fn reset_task_status(id: u64) -> bool {
 #[ic_cdk::query]
 // Get tasks with a specific title
 fn get_tasks_by_title(title: String) -> Vec<Task> {
+
     TASKS.with(|tasks| {
         tasks
             .borrow()
@@ -230,3 +231,30 @@ fn get_tasks_by_title(title: String) -> Vec<Task> {
             .collect()
     })
 }
+
+// type customTask = record {
+//   id: nat64;
+//   title: text;
+//   description: text;
+//   done: bool;
+//   is_important: bool;
+// };
+
+// service : {
+//   "create_task": (text, text, opt bool) -> (nat64);
+//   "get_task": (nat64) -> (opt customTask) query;
+//   "get_all_tasks": () -> (vec customTask) query;
+//   "update_task": (nat64, opt text, opt text, opt bool, opt bool) -> ();
+//   "delete_task": (nat64) -> (bool);
+//   "search_task_by_status": (bool) -> (vec customTask) query;
+//   "get_important_tasks": () -> (vec customTask) query;
+//   "get_completed_tasks": () -> (vec customTask) query;
+//   "get_incomplete_tasks": () -> (vec customTask) query;
+//   "get_total_number_of_tasks": () -> (nat64) query;
+//   "get_tasks_by_description": (text) -> (vec customTask) query;
+//   "get_tasks_by_importance_status": (bool) -> (vec customTask) query;
+//   "clear_completed_tasks": () -> ();
+//   "mark_task_as_done": (nat64) -> ();
+//   "reset_task_status": (nat64) -> ();
+//   "get_tasks_by_title": (text) -> (vec customTask) query;
+// };

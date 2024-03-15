@@ -1,26 +1,39 @@
+use candid::CandidType;
+use serde::{Deserialize, Serialize};
+
 use crate::enums::shop_enums::{CartPropertyStatus, OrderStatus};
 
 // Struct to represent an order
-#[derive(Debug)]
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct Order {
-    pub order_id: u64,
-    pub properties_id: Vec<String>,
+    pub buyer_id: u64,
+    pub seller_id: u64,
+    pub properties_id: Vec<u64>,
     pub status: OrderStatus,
-    pub total_amount: u64,
+    pub shipping: ShippingDetails,
+    pub total_amount: f64,
 }
 
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
+pub struct ShippingDetails {
+    pub country: String,
+    pub city: String,
+    pub county: String,
+    pub zip_code: String,
+    pub address: String,
+}
 // Struct to represent a Property in the cart
-#[derive(Debug)]
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct CartProperty {
-    pub property_id: String,
+    pub property_id: u64,
     pub quantity: u32,
     pub is_liked: bool,
     pub status: CartPropertyStatus,
 }
 
 // Struct to represent a shopping cart
-#[derive(Debug)]
+#[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct Cart {
-    pub cart_id: String,
-    pub properties: Vec<CartProperty>,
+    pub user_id: u64,
+    pub properties: Option<Vec<CartProperty>>,
 }

@@ -7,24 +7,19 @@ import Grid from "@mui/material/Grid";
 
 const products = [
   {
-    name: "Product 1",
-    desc: "A nice thing",
-    price: "$9.99",
+    name: "Gazebo House",
+    desc: "High-quality furniture availbe in the house",
+    price: "$375.99",
   },
   {
-    name: "Product 2",
-    desc: "Another thing",
-    price: "$3.45",
+    name: "Malbourne House",
+    desc: "Fully Furnished",
+    price: "$425.99",
   },
   {
-    name: "Product 3",
-    desc: "Something else",
-    price: "$6.51",
-  },
-  {
-    name: "Product 4",
-    desc: "Best thing of all",
-    price: "$14.11",
+    name: "Upperhill Blocks",
+    desc: "Fully Furnished",
+    price: "$575.99",
   },
   { name: "Shipping", desc: "", price: "Free" },
 ];
@@ -60,12 +55,12 @@ export default function Review() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Shipping
+           Documents Shipping
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
           <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
+        {/* <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Payment details
           </Typography>
@@ -81,7 +76,7 @@ export default function Review() {
               </React.Fragment>
             ))}
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
     </React.Fragment>
   );

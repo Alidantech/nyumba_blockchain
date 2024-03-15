@@ -17,15 +17,13 @@ import getLPTheme from "../../theme/getLPTheme";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 
-const steps = ["Shipping address", "Payment details", "Review your order"];
+const steps = ["Documents Shipping", "Review"];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
       return <AddressForm />;
     case 1:
-      return <PaymentForm />;
-    case 2:
       return <Review />;
     default:
       throw new Error("Unknown step");
@@ -42,14 +40,12 @@ export default function CheckoutPage() {
      // Dynamically set document title based on activeStep
      switch (activeStep) {
        case 0:
-         document.title = "Nyumba | Checkout - Shipping Address";
+         document.title = "Nyumba | Checkout - Documents Shipping Address";
          break;
        case 1:
-         document.title = "Nyumba | Checkout - Payment Details";
+        document.title = "Nyumba | Checkout - Review Your Order";
          break;
-       case 2:
-         document.title = "Nyumba | Checkout - Review Your Order";
-         break;
+      
        default:
          document.title = "Nyumba | Checkout";
          break;

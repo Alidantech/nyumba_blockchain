@@ -50,8 +50,7 @@ export default function TeamExample() {
           years: "$30",
         },
       ],
-      skills: ["2 bedrooms", "Balcony"],
-    },
+     skills: ["Edit", "Remove", "Archive"], },
     {
       name: "Upper Hill Flats",
       position: "$250 per month",
@@ -70,7 +69,7 @@ export default function TeamExample() {
           years: "",
         },
       ],
-      skills: ["Rooms", "Bedsitter", "2 bedroom"],
+     skills: ["Edit", "Remove", "Archive"],
     },
     {
       name: "Ruiru Flats",
@@ -90,7 +89,7 @@ export default function TeamExample() {
           years: "$20",
         },
       ],
-      skills: ["3 bedroom", "Single Rooms"],
+     skills: ["Edit", "Remove", "Archive"],
     },
     {
       name: "Kahawa Wendani Heights",
@@ -110,8 +109,7 @@ export default function TeamExample() {
           years: "every week",
         },
       ],
-      skills: ["Spacious", "Bedsitters"],
-    },
+     skills: ["Edit", "Remove", "Archive"],  },
   ];
 
   return (

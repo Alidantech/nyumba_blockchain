@@ -1,12 +1,6 @@
 import HomePage from "../pages/home/Home";
-import OrdersPage from "../pages/cart/Orders";
-import Cart from "../pages/cart/Cart";
-import ChatsPage from "../pages/chat/Chat";
-import MyProfile from "../pages/auth/Profile";
-import Land from "../pages/shop/Land";
-import RealEstate from "../pages/shop/RealEstate";
-import LeaseLand from "../pages/shop/LeaseLand";
-import Rental from "../pages/shop/Rental";
+import Requests from "../pages/services/CountyGovt"
+import Chat from "../pages/chat/Chat"
 import { RouteObject } from "react-router-dom";
 
 export const getGovtRoutes: () => RouteObject[][] = () => [
@@ -14,20 +8,24 @@ export const getGovtRoutes: () => RouteObject[][] = () => [
     //@ts-ignore
 
     path: "/home",
+    element: <Requests />,
+  },
+   {
+    //@ts-ignore
+    path: "/documents/requests",
+    element: <Requests />,
+  },
+   {
+    //@ts-ignore
+    path: "/documents/accepted",
+    element: <Requests />,
+  },
+   {
+    //@ts-ignore
+    path: "/chat",
     element: <HomePage />,
   },
-  {
-    //@ts-ignore
-
-    path: "/orders",
-    element: <OrdersPage />,
-  },
-  {
-    //@ts-ignore
-
-    path: "/profile",
-    element: <MyProfile />,
-  },
+  
 ];
 
 // Now you can use getGovtRoutes wherever RouteObject[][] is expected

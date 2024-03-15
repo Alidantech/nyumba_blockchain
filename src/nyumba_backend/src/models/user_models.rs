@@ -1,7 +1,6 @@
+use crate::enums::user_enums::*;
 use candid::CandidType;
 use serde::{Deserialize, Serialize};
-
-use crate::enums::user_enums::*;
 
 // Struct to hold user data common to all users
 #[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
@@ -9,9 +8,8 @@ pub struct User {
     pub name: String,
     pub email: String,
     pub password: String,
-    pub dob: String,
+    pub birth_date: String,
     pub photo_url: String,
-    pub user_type: UserType,
     pub gender: Gender,
 }
 
@@ -21,23 +19,23 @@ pub struct NormalUser {
     pub user_data: User,
     pub normal_user_role: NormalUserRole,
     pub is_verified: bool,
-    pub verification_documents: Vec<String>,
+    pub verification_documents: Vec<u64>,
 }
 
 // Struct to represent buyers
 #[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct Buyer {
     pub normal_user: NormalUser,
-    pub cart: Vec<String>,
-    pub orders: Vec<String>,
+    pub cart: Option<u64>,
+    pub orders: Option<Vec<u64>>,
 }
 
 // Struct to represent sellers
 #[derive(CandidType, Serialize, Deserialize, Clone, Debug)]
 pub struct Seller {
     pub normal_user: NormalUser,
-    pub properties: Vec<String>,
-    pub orders: Vec<String>,
+    pub properties: Option<Vec<u64>>,
+    pub orders: Option<Vec<u64>>,
 }
 
 // Struct to represent super users

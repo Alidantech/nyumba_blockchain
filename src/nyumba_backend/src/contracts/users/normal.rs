@@ -5,6 +5,11 @@ use std::{
 };
 
 use crate::{
+    contracts::files::user_verification::create_user_verification,
+    models::file_models::VerificationDocument,
+};
+
+use crate::{
     enums::user_enums::NormalUserRole,
     models::user_models::{NormalUser, User},
 };
@@ -17,21 +22,29 @@ thread_local! {
 
 // Update function to create a normal user based on the selected role
 #[update]
-pub fn create_normal_user(user_data: User, role: NormalUserRole, ) -> NormalUser {
+pub fn create_normal_user(
+    user_data: User,
+    role: NormalUserRole,
+    verification_docs: Vec<VerificationDocument>,
+) -> Option<NormalUser> {
     let is_verified = false;
-    let verification_documents = Vec::new();
+    // map through all verification documents and create and recieve the ids and put them in an array
+    let verification_docs_ids: Vec<u64> = verification_docs
+        .iter()
+        .map(|verification_doc| create_user_verification(verification_doc.clone()))
+        .collect();
 
     let normal_user = match role {
         NormalUserRole::Buyer => NormalUser {
             user_data,
             normal_user_role: NormalUserRole::Buyer,
-            verification_documents,
+            verification_documents: verification_docs_ids,
             is_verified,
         },
         NormalUserRole::Seller => NormalUser {
             user_data,
             normal_user_role: NormalUserRole::Seller,
-            verification_documents,
+            verification_documents: verification_docs_ids,
             is_verified,
         },
     };
@@ -45,19 +58,18 @@ pub fn create_normal_user(user_data: User, role: NormalUserRole, ) -> NormalUser
                 .insert(id, normal_user.clone());
         });
     });
-
-    normal_user
+    Some(normal_user)
 }
 
 #[query]
-pub fn get_user_info(id: u64) -> Option<NormalUser> {
+pub fn get_normal_user(id: u64) -> Option<NormalUser> {
     {
         NORMAL_USER_INFO.with(|normal_user_info| normal_user_info.borrow().get(&id).cloned())
     }
 }
 
 #[update]
-pub fn update_user_info(id: u64, new_user_data: User) -> Option<NormalUser> {
+pub fn update_normal_user(id: u64, new_user_data: User) -> Option<NormalUser> {
     {
         NORMAL_USER_INFO.with(|normal_user_info| {
             let mut normal_user_info = normal_user_info.borrow_mut();
@@ -82,8 +94,20 @@ pub fn update_user_info(id: u64, new_user_data: User) -> Option<NormalUser> {
 }
 
 #[update]
-pub fn delete_user(id: u64) -> Option<NormalUser> {
+pub fn delete_normal_user(id: u64) -> Option<NormalUser> {
     {
         NORMAL_USER_INFO.with(|normal_user_info| normal_user_info.borrow_mut().remove(&id))
     }
+}
+
+#[query]
+pub fn login(email: String, password: String) -> Option<NormalUser> {
+    NORMAL_USER_INFO.with(|normal_user_info| {
+        for user in normal_user_info.borrow().values() {
+            if user.user_data.email == email && user.user_data.password == password {
+                return Some(user.clone());
+            }
+        }
+        None
+    })
 }

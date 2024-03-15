@@ -1,3 +1,6 @@
+/*
+ *   FILES TYPES
+*/
 type MediaType = variant {
   Image;
   Video;
@@ -6,39 +9,237 @@ type MediaType = variant {
   Other : text;
 };
 
+type VerificationDocument = record {
+  date_updated : text;
+  is_verified : bool;
+  is_declined : bool;
+  media : MediaInfo;
+};
+
 type MediaInfo = record {
   media_type : MediaType;
   url : text;
 };
 
-service : {
-  "create_media" : (MediaInfo) -> (nat64);
-  "get_info" : (nat64) -> (opt MediaInfo) query;
+/*
+*   PROPERTY TYPES
+*/
+type Property = record {
+  title : text;
+  description : text;
+  address : text;
+  price : float64;
+  status : PropertyStatus;
+  location : text;
+  media : MediaInfo;
+  verification_documents : vec VerificationDocument;
 };
 
-// type customTask = record {
-//   id: nat64;
-//   title: text;
-//   description: text;
-//   done: bool;
-//   is_important: bool;
-// };
+type LandData = record {
+  property : Property;
+  size : nat64;
+};
 
-// service : {
-//   "create_task": (text, text, opt bool) -> (nat64);
-//   "get_task": (nat64) -> (opt customTask) query;
-//   "get_all_tasks": () -> (vec customTask) query;
-//   "update_task": (nat64, opt text, opt text, opt bool, opt bool) -> ();
-//   "delete_task": (nat64) -> (bool);
-//   "search_task_by_status": (bool) -> (vec customTask) query;
-//   "get_important_tasks": () -> (vec customTask) query;
-//   "get_completed_tasks": () -> (vec customTask) query;
-//   "get_incomplete_tasks": () -> (vec customTask) query;
-//   "get_total_number_of_tasks": () -> (nat64) query;
-//   "get_tasks_by_description": (text) -> (vec customTask) query;
-//   "get_tasks_by_importance_status": (bool) -> (vec customTask) query;
-//   "clear_completed_tasks": () -> ();
-//   "mark_task_as_done": (nat64) -> ();
-//   "reset_task_status": (nat64) -> ();
-//   "get_tasks_by_title": (text) -> (vec customTask) query;
-// };
+type SaleLand = record {
+  land_data : LandData;
+  sale_type : LandSaleType;
+};
+
+type LeaseLand = record {
+  land_data : LandData;
+  lease_period : nat32;
+  monthly_charges : float64;
+};
+
+type HouseData = record {
+  property : Property;
+  year_built : text;
+  square_footage : float64;
+};
+
+type RealEstate = record {
+  house_data : HouseData;
+  bedrooms : nat32;
+  bathrooms : nat32;
+  sale_type : HouseSaleType;
+};
+
+type Rental = record {
+  house_data : HouseData;
+  rooms_unit : RoomUnitType;
+  number_of_units : nat32;
+  bathrooms : nat32;
+  monthly_rent : float64;
+  rental_type : RentalType;
+};
+
+type LandSaleType = variant {
+  ForSale;
+  Auction;
+};
+
+type PropertyStatus = variant {
+  Sold;
+  Rented;
+  Available;
+  Pending;
+  UnAvailable;
+};
+
+type HouseSaleType = variant {
+  ForSale;
+  Auction;
+  Tokenize;
+};
+
+type RoomUnitType = variant {
+  Bedsitter;
+  Rooms;
+  Bedrooms;
+};
+
+type RentalType = variant {
+  ShortTerm;
+  LongTerm;
+};
+
+/*
+* SHOP TYPES
+*/
+type Order = record {
+  buyer_id : nat64;
+  seller_id : nat64;
+  properties_id : vec nat64;
+  status : OrderStatus;
+  shipping : ShippingDetails;
+  total_amount : float64;
+};
+
+type ShippingDetails = record {
+  country : text;
+  city : text;
+  county : text;
+  zip_code : text;
+  address : text;
+};
+
+type CartProperty = record {
+  property_id : text;
+  quantity : nat32;
+  is_liked : bool;
+  status : CartPropertyStatus;
+};
+
+type Cart = record {
+  user_id : nat64;
+  cart_id : text;
+  properties : vec CartProperty;
+};
+
+type CartPropertyStatus = variant {
+  InCart;
+  Archived;
+};
+
+type OrderStatus = variant {
+  Pending;
+  Confirmed;
+  Accepted;
+  Shipped;
+  Delivered;
+  Cancelled;
+};
+
+/*
+ *   USER TYPES
+*/
+
+type User = record {
+  name : text;
+  email : text;
+  password : text;
+  birth_date : text;
+  photo_url : text;
+  gender : Gender;
+};
+
+type NormalUser = record {
+  user_data : User;
+  normal_user_role : NormalUserRole;
+  is_verified : bool;
+  verification_documents : vec VerificationDocument;
+};
+
+type SuperUser = record {
+  user_data : User;
+  super_user_role : SuperUserRole;
+};
+
+type NormalUserRole = variant {
+  Buyer;
+  Seller;
+};
+
+type SuperUserRole = variant {
+  Admin;
+  Official;
+};
+
+type Gender = variant {
+  Male;
+  Female;
+  Other;
+};
+type OptionalCartProperties = opt vec CartProperty;
+
+service : {
+  // DATA CREATION METHODS
+  // "create_property_verification" : (VerificationDocument) -> (nat64);
+  // "create_user_verification" : (VerificationDocument) -> (nat64);
+  // "create_sale_land" : (SaleLand) -> (nat64);
+  // "create_rental" : (Rental) -> (nat64);
+  // "create_lease_land" : (LeaseLand) -> (nat64);
+  // "create_real_estate" : (RealEstate) -> (nat64);
+  // "place_order" : (Order) -> (nat64);
+  "create_cart" : (nat64) -> (nat64);
+  "add_item_to_cart" : (nat64, nat64, nat32) -> (bool);
+
+  // DATA RETRIEVAL METHODS
+  // "get_all_property_verifications" : () -> (vec VerificationDocument) query;
+  // "get_all_user_verifications" : () -> (vec VerificationDocument) query;
+  // "get_all_sale_lands" : () -> (vec SaleLand);
+  // "get_all_rentals" : () -> (vec Rental) query;
+  // "get_all_lease_lands" : () -> (vec LeaseLand) query;
+  // "get_all_real_estates" : () -> (vec RealEstate) query;
+  // "get_all_orders" : () -> (vec Order);
+  "view_cart_items" : (nat64) -> (OptionalCartProperties) query;
+
+  // "get_property_verification" : (nat64) -> (opt VerificationDocument) query;
+  // "get_user_verification" : (nat64) -> (opt VerificationDocument) query;
+  // "get_sale_land" : (nat64) -> (opt SaleLand) query;
+  // "get_rental" : (nat64) -> (opt Rental) query;
+  // "get_lease_land" : (nat64) -> (opt LeaseLand) query;
+  // "get_real_estate" : (nat64) -> (opt RealEstate) query;
+  // "get_order" : (nat64) -> (opt Order) query;
+  // "get_orders_by_buyer_id" : (nat64) -> (vec Order) query;
+  // "get_orders_by_seller_id" : (nat64) -> (vec Order) query;
+
+  // DATA UPDATE METHODS
+  // "update_sale_land" : (nat64, SaleLand) -> (bool);
+  // "update_rental" : (nat64, Rental) -> (bool);
+  // "update_lease_land" : (nat64, LeaseLand) -> (bool);
+  // "update_real_estate" : (nat64, RealEstate) -> (bool);
+  // "cancel_order" : (nat64) -> (bool);
+  // "confirm_order" : (nat64) -> (bool);
+  // "accept_order" : (nat64) -> (bool);
+  "like_cart_item" : (nat64, nat64) -> (bool);
+  "archive_cart_item" : (nat64, nat64) -> (bool);
+  "return_item_to_cart" : (nat64, nat64) -> (bool);
+
+  // DATA DELETION METHODS
+  // "delete_sale_land" : (nat64) -> (bool);
+  // "delete_rental" : (nat64) -> (bool);
+  // "delete_lease_land" : (nat64) -> (bool);
+  // "delete_real_estate" : (nat64) -> (bool);
+  "remove_item_from_cart" : (nat64, nat64) -> (bool);
+};

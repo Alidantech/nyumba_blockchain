@@ -1,19 +1,21 @@
-import * as React from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import CardOverflow from '@mui/joy/CardOverflow';
-import Chip from '@mui/joy/Chip';
-import IconButton from '@mui/joy/IconButton';
-import Link from '@mui/joy/Link';
-import Stack from '@mui/joy/Stack';
-import Typography from '@mui/joy/Typography';
-import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import FmdGoodRoundedIcon from '@mui/icons-material/FmdGoodRounded';
-import KingBedRoundedIcon from '@mui/icons-material/KingBedRounded';
-import WifiRoundedIcon from '@mui/icons-material/WifiRounded';
-import Star from '@mui/icons-material/Star';
+import * as React from "react";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Card from "@mui/joy/Card";
+import CardContent from "@mui/joy/CardContent";
+import CardOverflow from "@mui/joy/CardOverflow";
+import Chip from "@mui/joy/Chip";
+import IconButton from "@mui/joy/IconButton";
+import Button from "@mui/joy/Button";
+import Link2 from "@mui/joy/Link";
+import Stack from "@mui/joy/Stack";
+import Typography from "@mui/joy/Typography";
+import WorkspacePremiumRoundedIcon from "@mui/icons-material/WorkspacePremiumRounded";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import FmdGoodRoundedIcon from "@mui/icons-material/FmdGoodRounded";
+import KingBedRoundedIcon from "@mui/icons-material/KingBedRounded";
+import WifiRoundedIcon from "@mui/icons-material/WifiRounded";
+import Star from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 
 type RentalCardProps = {
   category: React.ReactNode;
@@ -31,22 +33,22 @@ export default function RentalCard(props: RentalCardProps) {
       variant="outlined"
       orientation="horizontal"
       sx={{
-        bgcolor: 'neutral.softBg',
-        display: 'flex',
-        flexDirection: { xs: 'column', sm: 'row' },
-        '&:hover': {
-          boxShadow: 'lg',
-          borderColor: 'var(--joy-palette-neutral-outlinedDisabledBorder)',
+        bgcolor: "neutral.softBg",
+        display: "flex",
+        flexDirection: { xs: "column", sm: "row" },
+        "&:hover": {
+          boxShadow: "lg",
+          borderColor: "var(--joy-palette-neutral-outlinedDisabledBorder)",
         },
       }}
     >
       <CardOverflow
         sx={{
-          mr: { xs: 'var(--CardOverflow-offset)', sm: 0 },
-          mb: { xs: 0, sm: 'var(--CardOverflow-offset)' },
-          '--AspectRatio-radius': {
-            xs: 'calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0 0',
-            sm: 'calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0 0 calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))',
+          mr: { xs: "var(--CardOverflow-offset)", sm: 0 },
+          mb: { xs: 0, sm: "var(--CardOverflow-offset)" },
+          "--AspectRatio-radius": {
+            xs: "calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0 0",
+            sm: "calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px)) 0 0 calc(var(--CardOverflow-radius) - var(--variant-borderWidth, 0px))",
           },
         }}
       >
@@ -55,14 +57,14 @@ export default function RentalCard(props: RentalCardProps) {
           flex
           sx={{
             minWidth: { sm: 120, md: 160 },
-            '--AspectRatio-maxHeight': { xs: '160px', sm: '9999px' },
+            "--AspectRatio-maxHeight": { xs: "160px", sm: "9999px" },
           }}
         >
           <img alt="" src={image} />
           <Stack
             alignItems="center"
             direction="row"
-            sx={{ position: 'absolute', top: 0, width: '100%', p: 1 }}
+            sx={{ position: "absolute", top: 0, width: "100%", p: 1 }}
           >
             {rareFind && (
               <Chip
@@ -77,13 +79,13 @@ export default function RentalCard(props: RentalCardProps) {
             <IconButton
               variant="plain"
               size="sm"
-              color={isLiked ? 'danger' : 'neutral'}
+              color={isLiked ? "danger" : "neutral"}
               onClick={() => setIsLiked((prev) => !prev)}
               sx={{
-                display: { xs: 'flex', sm: 'none' },
-                ml: 'auto',
-                borderRadius: '50%',
-                zIndex: '20',
+                display: { xs: "flex", sm: "none" },
+                ml: "auto",
+                borderRadius: "50%",
+                zIndex: "20",
               }}
             >
               <FavoriteRoundedIcon />
@@ -101,24 +103,17 @@ export default function RentalCard(props: RentalCardProps) {
           <div>
             <Typography level="body-sm">{category}</Typography>
             <Typography level="title-md">
-              <Link
-                overlay
-                underline="none"
-                href="#interactive-card"
-                sx={{ color: 'text.primary' }}
-              >
-                {title}
-              </Link>
+              <Link to="/cart">{title}</Link>
             </Typography>
           </div>
           <IconButton
             variant="plain"
             size="sm"
-            color={isLiked ? 'danger' : 'neutral'}
+            color={isLiked ? "danger" : "neutral"}
             onClick={() => setIsLiked((prev) => !prev)}
             sx={{
-              display: { xs: 'none', sm: 'flex' },
-              borderRadius: '50%',
+              display: { xs: "none", sm: "flex" },
+              borderRadius: "50%",
             }}
           >
             <FavoriteRoundedIcon />
@@ -131,7 +126,7 @@ export default function RentalCard(props: RentalCardProps) {
           flexWrap="wrap"
           sx={{ my: 0.25 }}
         >
-          <Typography level="body-xs" startDecorator={<FmdGoodRoundedIcon />}>
+          {/* <Typography level="body-xs" startDecorator={<FmdGoodRoundedIcon />}>
             Collingwood VIC
           </Typography>
           <Typography level="body-xs" startDecorator={<KingBedRoundedIcon />}>
@@ -139,27 +134,35 @@ export default function RentalCard(props: RentalCardProps) {
           </Typography>
           <Typography level="body-xs" startDecorator={<WifiRoundedIcon />}>
             Wi-Fi
-          </Typography>
-        </Stack>
-        <Stack direction="row" sx={{ mt: 'auto' }}>
+          </Typography> */}
           <Typography
             level="title-sm"
             startDecorator={
               <React.Fragment>
-                <Star sx={{ color: 'warning.400' }} />
-                <Star sx={{ color: 'warning.400' }} />
-                <Star sx={{ color: 'warning.400' }} />
-                <Star sx={{ color: 'warning.400' }} />
-                <Star sx={{ color: 'warning.200' }} />
+                <Star sx={{ color: "warning.400" }} />
+                <Star sx={{ color: "warning.400" }} />
+                <Star sx={{ color: "warning.400" }} />
+                <Star sx={{ color: "warning.400" }} />
+                <Star sx={{ color: "warning.200" }} />
               </React.Fragment>
             }
-            sx={{ display: 'flex', gap: 1 }}
+            sx={{ display: "flex", gap: 1 }}
           >
             4.0
           </Typography>
-          <Typography level="title-lg" sx={{ flexGrow: 1, textAlign: 'right' }}>
+          <Typography level="title-lg" sx={{ flexGrow: 1, textAlign: "right" }}>
             <strong>$540</strong> <Typography level="body-md">total</Typography>
           </Typography>
+        </Stack>
+        <Stack
+          sx={{ mt: "auto", flexDirection: "row", display: "flex", flexWrap:"nowrap", justifyContent: "space-between" }}
+        >
+          <Link to="/cart">
+            <Button sx={{ ml: "auto" }}>Buy Now</Button>
+          </Link>
+          <Link to="/cart">
+            <Button sx={{ ml: "auto" }}>Add to cart</Button>
+          </Link>
         </Stack>
       </CardContent>
     </Card>
