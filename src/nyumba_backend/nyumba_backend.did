@@ -160,6 +160,7 @@ type User = record {
   password : text;
   birth_date : text;
   photo_url : text;
+  user_type : UserType;
   gender : Gender;
 };
 
@@ -173,6 +174,11 @@ type NormalUser = record {
 type SuperUser = record {
   user_data : User;
   super_user_role : SuperUserRole;
+};
+
+type UserType = variant {
+  NormalUser;
+  SuperUser;
 };
 
 type NormalUserRole = variant {
@@ -190,56 +196,68 @@ type Gender = variant {
   Female;
   Other;
 };
+
 type OptionalCartProperties = opt vec CartProperty;
 
 service : {
   // DATA CREATION METHODS
-  // "create_property_verification" : (VerificationDocument) -> (nat64);
-  // "create_user_verification" : (VerificationDocument) -> (nat64);
-  // "create_sale_land" : (SaleLand) -> (nat64);
-  // "create_rental" : (Rental) -> (nat64);
-  // "create_lease_land" : (LeaseLand) -> (nat64);
-  // "create_real_estate" : (RealEstate) -> (nat64);
-  // "place_order" : (Order) -> (nat64);
+  "create_property_verification" : (VerificationDocument) -> (nat64);
+  "create_user_verification" : (VerificationDocument) -> (nat64);
+  "create_sale_land" : (SaleLand) -> (nat64);
+  "create_rental" : (Rental) -> (nat64);
+  "create_lease_land" : (LeaseLand) -> (nat64);
+  "create_real_estate" : (RealEstate) -> (nat64);
+  "place_order" : (Order) -> (nat64);
   "create_cart" : (nat64) -> (nat64);
   "add_item_to_cart" : (nat64, nat64, nat32) -> (bool);
+  "create_normal_user" : (User, NormalUserRole, vec VerificationDocument) -> (opt NormalUser);
+  "create_super_user" : (User, SuperUserRole) -> (opt SuperUser);
 
   // DATA RETRIEVAL METHODS
-  // "get_all_property_verifications" : () -> (vec VerificationDocument) query;
-  // "get_all_user_verifications" : () -> (vec VerificationDocument) query;
-  // "get_all_sale_lands" : () -> (vec SaleLand);
-  // "get_all_rentals" : () -> (vec Rental) query;
-  // "get_all_lease_lands" : () -> (vec LeaseLand) query;
-  // "get_all_real_estates" : () -> (vec RealEstate) query;
-  // "get_all_orders" : () -> (vec Order);
+  "get_all_property_verifications" : () -> (vec VerificationDocument) query;
+  "get_all_user_verifications" : () -> (vec VerificationDocument) query;
+  "get_all_sale_lands" : () -> (vec SaleLand);
+  "get_all_rentals" : () -> (vec Rental) query;
+  "get_all_lease_lands" : () -> (vec LeaseLand) query;
+  "get_all_real_estates" : () -> (vec RealEstate) query;
+  "get_all_orders" : () -> (vec Order);
   "view_cart_items" : (nat64) -> (OptionalCartProperties) query;
 
-  // "get_property_verification" : (nat64) -> (opt VerificationDocument) query;
-  // "get_user_verification" : (nat64) -> (opt VerificationDocument) query;
-  // "get_sale_land" : (nat64) -> (opt SaleLand) query;
-  // "get_rental" : (nat64) -> (opt Rental) query;
-  // "get_lease_land" : (nat64) -> (opt LeaseLand) query;
-  // "get_real_estate" : (nat64) -> (opt RealEstate) query;
-  // "get_order" : (nat64) -> (opt Order) query;
-  // "get_orders_by_buyer_id" : (nat64) -> (vec Order) query;
-  // "get_orders_by_seller_id" : (nat64) -> (vec Order) query;
+  "get_property_verification" : (nat64) -> (opt VerificationDocument) query;
+  "get_user_verification" : (nat64) -> (opt VerificationDocument) query;
+  "get_sale_land" : (nat64) -> (opt SaleLand) query;
+  "get_rental" : (nat64) -> (opt Rental) query;
+  "get_lease_land" : (nat64) -> (opt LeaseLand) query;
+  "get_real_estate" : (nat64) -> (opt RealEstate) query;
+  "get_order" : (nat64) -> (opt Order) query;
+  "get_orders_by_buyer_id" : (nat64) -> (vec Order) query;
+  "get_orders_by_seller_id" : (nat64) -> (vec Order) query;
+  "get_normal_user" : (nat64) -> (opt NormalUser) query;
+  "get_super_user" : (nat64) -> (opt SuperUser);
+  "login" : (text, text) -> (opt NormalUser) query;
+  "super_user_login" : (text, text) -> (opt SuperUser);
 
   // DATA UPDATE METHODS
-  // "update_sale_land" : (nat64, SaleLand) -> (bool);
-  // "update_rental" : (nat64, Rental) -> (bool);
-  // "update_lease_land" : (nat64, LeaseLand) -> (bool);
-  // "update_real_estate" : (nat64, RealEstate) -> (bool);
-  // "cancel_order" : (nat64) -> (bool);
-  // "confirm_order" : (nat64) -> (bool);
-  // "accept_order" : (nat64) -> (bool);
+  "update_sale_land" : (nat64, SaleLand) -> (bool);
+  "update_rental" : (nat64, Rental) -> (bool);
+  "update_lease_land" : (nat64, LeaseLand) -> (bool);
+  "update_real_estate" : (nat64, RealEstate) -> (bool);
+  "cancel_order" : (nat64) -> (bool);
+  "confirm_order" : (nat64) -> (bool);
+  "accept_order" : (nat64) -> (bool);
   "like_cart_item" : (nat64, nat64) -> (bool);
   "archive_cart_item" : (nat64, nat64) -> (bool);
   "return_item_to_cart" : (nat64, nat64) -> (bool);
+  "update_normal_user" : (nat64, User) -> (bool);
+  "update_super_user" : (nat64, User) -> (opt SuperUser);
 
   // DATA DELETION METHODS
-  // "delete_sale_land" : (nat64) -> (bool);
-  // "delete_rental" : (nat64) -> (bool);
-  // "delete_lease_land" : (nat64) -> (bool);
-  // "delete_real_estate" : (nat64) -> (bool);
+  "delete_sale_land" : (nat64) -> (bool);
+  "delete_rental" : (nat64) -> (bool);
+  "delete_lease_land" : (nat64) -> (bool);
+  "delete_real_estate" : (nat64) -> (bool);
   "remove_item_from_cart" : (nat64, nat64) -> (bool);
+  "delete_normal_user" : (nat64) -> (bool);
+  "delete_super_user" : (nat64) -> (opt SuperUser);
+
 };

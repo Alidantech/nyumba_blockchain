@@ -10,6 +10,7 @@ pub struct User {
     pub password: String,
     pub birth_date: String,
     pub photo_url: String,
+    pub user_type: UserType,
     pub gender: Gender,
 }
 

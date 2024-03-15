@@ -1,6 +1,8 @@
 use ic_cdk::{query, update};
-use std::cell::{Cell, RefCell};
-use std::collections::HashMap;
+use std::{
+    cell::{Cell, RefCell},
+    collections::HashMap,
+};
 
 use crate::enums::shop_enums::CartPropertyStatus;
 use crate::models::shop_models::{Cart, CartProperty};
@@ -31,7 +33,7 @@ pub fn create_cart(buyer_id: u64) -> u64 {
 
 #[update]
 pub fn add_item_to_cart(cart_id: u64, property_id: u64, quantity: u32) -> bool {
-    let success = CART.with(|cart| {
+    CART.with(|cart| {
         if let Some(user_cart) = cart.borrow_mut().get_mut(&cart_id) {
             if let Some(properties) = &mut user_cart.properties {
                 properties.push(CartProperty {
@@ -44,13 +46,12 @@ pub fn add_item_to_cart(cart_id: u64, property_id: u64, quantity: u32) -> bool {
             }
         }
         false
-    });
-    success
+    })
 }
 
 #[update]
 pub fn remove_item_from_cart(cart_id: u64, property_id: u64) -> bool {
-    let success = CART.with(|cart| {
+    CART.with(|cart| {
         if let Some(user_cart) = cart.borrow_mut().get_mut(&cart_id) {
             if let Some(properties) = &mut user_cart.properties {
                 properties.retain(|property| property.property_id != property_id);
@@ -58,13 +59,12 @@ pub fn remove_item_from_cart(cart_id: u64, property_id: u64) -> bool {
             }
         }
         false
-    });
-    success
+    })
 }
 
 #[update]
 pub fn like_cart_item(cart_id: u64, property_id: u64) -> bool {
-    let success = CART.with(|cart| {
+    CART.with(|cart| {
         if let Some(user_cart) = cart.borrow_mut().get_mut(&cart_id) {
             if let Some(properties) = &mut user_cart.properties {
                 if let Some(property) = properties
@@ -77,13 +77,12 @@ pub fn like_cart_item(cart_id: u64, property_id: u64) -> bool {
             }
         }
         false
-    });
-    success
+    })
 }
 
 #[update]
 pub fn archive_cart_item(cart_id: u64, property_id: u64) -> bool {
-    let success = CART.with(|cart| {
+    CART.with(|cart| {
         if let Some(user_cart) = cart.borrow_mut().get_mut(&cart_id) {
             if let Some(properties) = &mut user_cart.properties {
                 if let Some(property) = properties
@@ -96,13 +95,12 @@ pub fn archive_cart_item(cart_id: u64, property_id: u64) -> bool {
             }
         }
         false
-    });
-    success
+    })
 }
 
 #[update]
 pub fn return_item_to_cart(cart_id: u64, property_id: u64) -> bool {
-    let success = CART.with(|cart| {
+    CART.with(|cart| {
         if let Some(user_cart) = cart.borrow_mut().get_mut(&cart_id) {
             if let Some(properties) = &mut user_cart.properties {
                 if let Some(property) = properties
@@ -115,8 +113,7 @@ pub fn return_item_to_cart(cart_id: u64, property_id: u64) -> bool {
             }
         }
         false
-    });
-    success
+    })
 }
 
 #[query]

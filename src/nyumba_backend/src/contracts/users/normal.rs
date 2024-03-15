@@ -69,35 +69,30 @@ pub fn get_normal_user(id: u64) -> Option<NormalUser> {
 }
 
 #[update]
-pub fn update_normal_user(id: u64, new_user_data: User) -> Option<NormalUser> {
-    {
-        NORMAL_USER_INFO.with(|normal_user_info| {
-            let mut normal_user_info = normal_user_info.borrow_mut();
-            if let Some(existing_normal_user) = normal_user_info.get(&id) {
-                {
-                    let new_normal_user = NormalUser {
-                        user_data: new_user_data,
-                        normal_user_role: existing_normal_user.normal_user_role.clone(),
-                        is_verified: existing_normal_user.is_verified,
-                        verification_documents: existing_normal_user.verification_documents.clone(),
-                    };
-                    normal_user_info.insert(id, new_normal_user.clone());
-                    Some(new_normal_user)
-                }
-            } else {
-                {
-                    None
-                }
-            }
-        })
-    }
+pub fn update_normal_user(id: u64, new_user_data: User) -> bool {
+    let success = NORMAL_USER_INFO.with(|normal_user_info| {
+        let mut normal_user_info = normal_user_info.borrow_mut();
+        if let Some(existing_normal_user) = normal_user_info.get(&id) {
+            let new_normal_user = NormalUser {
+                user_data: new_user_data,
+                normal_user_role: existing_normal_user.normal_user_role.clone(),
+                is_verified: existing_normal_user.is_verified,
+                verification_documents: existing_normal_user.verification_documents.clone(),
+            };
+            normal_user_info.insert(id, new_normal_user);
+            true
+        } else {
+            false
+        }
+    });
+    success
 }
 
 #[update]
-pub fn delete_normal_user(id: u64) -> Option<NormalUser> {
-    {
-        NORMAL_USER_INFO.with(|normal_user_info| normal_user_info.borrow_mut().remove(&id))
-    }
+pub fn delete_normal_user(id: u64) -> bool {
+    let success = NORMAL_USER_INFO
+        .with(|normal_user_info| normal_user_info.borrow_mut().remove(&id).is_some());
+    success
 }
 
 #[query]

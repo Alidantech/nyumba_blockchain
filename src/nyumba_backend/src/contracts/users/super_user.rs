@@ -48,34 +48,29 @@ pub fn get_super_user(id: u64) -> Option<SuperUser> {
 }
 
 #[update]
-pub fn update_super_user(id: u64, new_user_data: User) -> Option<SuperUser> {
-    {
-        SUPER_USER_INFO.with(|super_user_info| {
-            let mut super_user_info = super_user_info.borrow_mut();
-            if let Some(existing_super_user) = super_user_info.get(&id) {
-                {
-                    let new_super_user = SuperUser {
-                        user_data: new_user_data,
-                        super_user_role: existing_super_user.super_user_role.clone(),
-                    };
-                    super_user_info.insert(id, new_super_user.clone());
-                    Some(new_super_user)
-                }
-            } else {
-                {
-                    None
-                }
-            }
-        })
-    }
+pub fn update_super_user(id: u64, new_user_data: User) -> bool {
+    let result = SUPER_USER_INFO.with(|super_user_info| {
+        let mut super_user_info = super_user_info.borrow_mut();
+        if let Some(existing_super_user) = super_user_info.get(&id) {
+            let new_super_user = SuperUser {
+                user_data: new_user_data,
+                super_user_role: existing_super_user.super_user_role.clone(),
+            };
+            super_user_info.insert(id, new_super_user.clone());
+            true
+        } else {
+            false
+        }
+    });
+    result
 }
 
 #[update]
-pub fn delete_super_user(id: u64) -> Option<SuperUser> {
-    {
-        SUPER_USER_INFO.with(|super_user_info| super_user_info.borrow_mut().remove(&id))
-    }
+pub fn delete_super_user(id: u64) -> bool {
+    let result = SUPER_USER_INFO.with(|super_user_info| super_user_info.borrow_mut().remove(&id).is_some());
+    result
 }
+
 
 #[query]
 pub fn super_user_login(email: String, password: String) -> Option<SuperUser> {
